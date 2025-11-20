@@ -97,8 +97,6 @@ const MobileSidebar = ({ megaMenuData }) => (
     {/* MOBILE NAVIGATION */}
     <nav className="flex flex-col gap-4 text-gray-800 font-medium mt-4">
       <a className="hover:text-[#EDDD5E]">HOME</a>
-      <a className="hover:text-[#EDDD5E]">PAGES</a>
-
       <Accordion type="single" collapsible>
         <AccordionItem value="services">
           <AccordionTrigger className="font-semibold text-gray-800 hover:text-[#EDDD5E]">
@@ -108,8 +106,6 @@ const MobileSidebar = ({ megaMenuData }) => (
           <AccordionContent className="pl-2 mt-3">
             {megaMenuData.services.map((section, idx) => (
               <div key={idx} className="mb-4">
-                <h4 className="font-semibold text-green-700 mb-2">{section.title}</h4>
-
                 <ul className="space-y-2">
                   {section.items.map((item, i2) => (
                     <li key={i2} className="text-gray-700 hover:text-[#EDDD5E] cursor-pointer">
@@ -151,8 +147,7 @@ export default function Header() {
   const megaMenuData = {
     services: [
       {
-        title: "Garden Services",
-        items: ["Garden Care", "Lawn Maintenance", "Garden designing"],
+        items: ["Bespoke garden design", "Specialised Planting Plan", "Ordering Plants","Implementation","Aftercare"],
       },
     ],
   };

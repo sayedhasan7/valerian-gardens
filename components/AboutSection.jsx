@@ -4,11 +4,11 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         <div className="relative">
-          <img className="rounded-3xl inverted-radius-3 w-full h-[500px] object-cover"
-            src="/about.jpg" />
+          <img className="rounded-3xl inverted-radius-left w-full h-[700px] object-center"
+            src="/about.jpeg" />
 
-          <div className="absolute bottom-0 right-0 bg-[#EDDD5E] p-6 rounded-2xl">
-            <p className="text-4xl font-bold text-[#404A3D]"><span className="text-[#5B8C51]">*</span> #635+</p>
+          <div className="absolute top-0 right-0 bg-[#EDDD5E] p-6 rounded-2xl">
+            <p className="text-4xl font-bold text-[#404A3D]"><span className="text-[#5B8C51]">*</span> #3+</p>
             <p className="text-[#666666] font-semibold">Years of gardening</p>
           </div>
         </div>
