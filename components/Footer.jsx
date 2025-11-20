@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="text-gray-900 text-2xl font-bold">valerian</span>
             </div>
 
-            <p className="text-gray-800 mb-6">There are many variations of passages...</p>
+            <p className="text-gray-800 mb-6">Creating beautiful, sustainable gardens that connect people with nature through thoughtful design and ecological practices.</p>
 
             <div className="flex gap-3">
               {["facebook-f", "twitter", "instagram", "linkedin-in"].map((icon, i) => (
@@ -47,24 +47,24 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <i className="fas fa-map-marker-alt text-green-700 mt-1"></i>
-                <span>123 Street, City</span>
+                <span>London, United Kingdom</span>
               </li>
               <li className="flex items-start gap-3">
                 <i className="fas fa-phone text-green-700 mt-1"></i>
-                <span>+1 234 567 8900</span>
+                <span>+44 (0) 123 456 7890</span>
               </li>
               <li className="flex items-start gap-3">
                 <i className="fas fa-envelope text-green-700 mt-1"></i>
-                <span>info@valerian.com</span>
+                <span>info@valeriangardens.com</span>
               </li>
             </ul>
           </div>
 
         </div>
 
-        <div className="pt-8 border-t border-gray-700/20 flex justify-between items-center">
+        <div className="pt-8 border-t border-gray-700/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-800 text-sm">
-            © 2024 valerian. All rights reserved.
+            © 2024 Valerian Gardens Design. All rights reserved.
           </p>
 
           <div className="flex gap-6">

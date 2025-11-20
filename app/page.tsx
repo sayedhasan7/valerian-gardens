@@ -11,7 +11,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import HistorySection from "@/components/HistorySection";
 import GlobalPresenceSection from "@/components/GlobalPresenceSection";
-import BlogSection from "@/components/BlogSection";
+// import BlogSection from "@/components/BlogSection";
 import Footer from "@/components/Footer";
 
 export default function Page() {
