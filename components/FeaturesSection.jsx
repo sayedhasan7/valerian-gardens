@@ -2,10 +2,10 @@ import { Tractor, Recycle, Apple, BadgeCheck, ArrowUpRight } from "lucide-react"
 
 export default function FeaturesSection() {
   const features = [
-    { icon: <BadgeCheck size={28} strokeWidth={1.6} />, title: "lorem ipsum" },
-    { icon: <BadgeCheck size={28} strokeWidth={1.6} />, title: "lorem ipsum" },
-    { icon: <BadgeCheck size={28} strokeWidth={1.6} />, title: "lorem ipsum" },
-    { icon: <BadgeCheck size={28} strokeWidth={1.6} />, title: "lorem ipsum" }
+    { icon: <Recycle size={28} strokeWidth={1.6} />, title: "Sustainable & Ecological Design" },
+    { icon: <Apple size={28} strokeWidth={1.6} />, title: "Wildlife-Friendly Gardens" },
+    { icon: <Tractor size={28} strokeWidth={1.6} />, title: "Professional Implementation" },
+    { icon: <BadgeCheck size={28} strokeWidth={1.6} />, title: "Personalized Planting Plans" }
   ];
 
   return (
@@ -46,8 +46,8 @@ function FarmerCard({ icon, title }) {
         <div className="w-full h-0.5 bg-gray-200 my-4"></div>
 
         {/* Description */}
-        <p className="/90 leading-relaxed mb-6 pr-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <p className="text-gray-600 leading-relaxed mb-6 pr-8">
+          Creating gardens that are environmentally responsible, beautiful, and uniquely tailored to your needs.
         </p>
 
         {/* Arrow */}

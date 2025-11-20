@@ -8,7 +8,7 @@ export default function AboutSection() {
           <Image
             width={1000}
             height={1000}
-            className="rounded-3xl inverted-radius-left w-full h-[700px] object-center"
+            className="rounded-3xl inverted-radius-left w-full h-[700px] object-cover"
             src="/about.jpeg"
             alt="About"
           />

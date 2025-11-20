@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ServicesSection() {
   return (
     <section className="py-20 px-6 bg-[#5B8C51]">
@@ -19,18 +21,18 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {[
-            { color: "#5a8a3a", title: "lorem ipsum" },
-            { color: "#d4a574", title: "lorem ipsum" },
-            { color: "#7a9a6a", title: "lorem ipsum" }
-          ].map((srv, i) => (
+            { image: "/flower-1.jpeg", title: "Bespoke Garden Design", description: "Custom garden designs tailored to your unique outdoor space, bringing your vision to life with thoughtful planning and creativity." },
+            { image: "/flower-2.jpeg", title: "Specialised Planting Plan", description: "Expert planting plans specific to your outdoor environment, selecting the perfect plants for your soil, climate, and aesthetic preferences." },
+            { image: "/flower-3.jpeg", title: "Implementation & Aftercare", description: "Full implementation services and ongoing aftercare to ensure your garden thrives and evolves beautifully over time." }
+          ].map((service, i) => (
             <div key={i} className="relative">
 
             <div className="service-card bg-white z-0 inverted-radius-4 rounded-3xl overflow-hidden">
-              <img src={`https://dummyimage.com/400x300/${srv.color.slice(1)}/ffffff`} className="w-full p-5 rounded-4xl h-48 object-cover" />
+              <Image src={service.image} alt={service.title} width={600} height={400} className="w-full p-5 rounded-4xl h-48 object-cover" />
 
               <div className="p-6 relative">
-                <h3 className="font-bold text-xl text-[#404A3D] mb-3">{srv.title}</h3>
-                <p className="text-[#666666] text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipiscing elit sed lorem</p>
+                <h3 className="font-bold text-xl text-[#404A3D] mb-3">{service.title}</h3>
+                <p className="text-[#666666] text-sm mb-4">{service.description}</p>
 
               </div>
 
