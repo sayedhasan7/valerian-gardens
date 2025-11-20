@@ -1,47 +1,70 @@
+import Image from "next/image";
+
 export default function AboutSection() {
   return (
     <section className="py-20 px-6 bg-[#F8F7F0]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
         <div className="relative">
-          <img className="rounded-3xl inverted-radius-left w-full h-[700px] object-center"
-            src="/about.jpeg" />
+          <Image
+            width={1000}
+            height={1000}
+            className="rounded-3xl inverted-radius-left w-full h-[700px] object-center"
+            src="/about.jpeg"
+            alt="About"
+          />
 
           <div className="absolute top-0 right-0 bg-[#EDDD5E] p-6 rounded-2xl">
-            <p className="text-4xl font-bold text-[#404A3D]"><span className="text-[#5B8C51]">*</span> #3+</p>
+            <p className="text-4xl font-bold text-[#404A3D]">
+              <span className="text-[#5B8C51]">*</span> #3+
+            </p>
             <p className="text-[#666666] font-semibold">Years of gardening</p>
           </div>
         </div>
 
         <div>
-
-          <p className="text-yellow-600 font-semibold mb-3 tracking-wide">ABOUT US</p>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-[rgb(64,74,61)] mb-6 leading-tight">
-Lelit. Sequi cum, voluptatibus 
-          </h2>
-
-          <p className="text-gray-600 mb-8 leading-relaxed">
-            There are many variations of passages of lorem ipsum available but the majority have suffered alteration...
+          <p className="text-yellow-600 font-semibold mb-3 tracking-wide">
+            ABOUT US
           </p>
 
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            <div>
-              <h4 className="font-bold text-[#404A3D] mb-2 text-lg">01) Lorem, ipsum.</h4>
-              <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-[#404A3D] mb-2 text-lg">02) Lorem, ipsum.</h4>
-              <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet</p>
-            </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-[rgb(64,74,61)] mb-6 leading-tight">
+            Hello, I&apos;m Donata
+          </h2>
+
+          <div className="text-gray-600 mb-8 leading-relaxed flex flex-col gap-4">
+            <p>
+              I&apos;m a garden designer passionate about creating spaces that
+              connect people with nature.
+            </p>
+            <p>
+              After completing three years of Garden Design at the renowned{" "}
+              <span className="font-bold">Capel Manor College</span> in London,
+              I began to specialise in ecological and sustainable planting. My
+              work is inspired by nature and focuses on crafting gardens that
+              are not only beautiful, but also resilient, wildlife-friendly, and
+              in harmony with their surroundings.
+            </p>
+            <p>
+              Every project begins with understanding how a garden will be used
+              and how it can enhance the lives of those who spend time in it.
+              Whether it&apos;s a small city courtyard, a modern family garden,
+              or a naturalistic landscape, I aim to bring together form,
+              texture, and planting to create places that feel alive throughout
+              the seasons. I believe a successful garden should evolve
+              gracefully over time, supporting biodiversity while offering a
+              calm, restorative space for people. By combining design creativity
+              with a respect for ecology, my goal is to create gardens that are
+              both environmentally responsible and deeply personal.
+            </p>
+            <p>
+              Let&apos;s grow something beautiful, sustainable, and uniquely
+              yours!
+            </p>
           </div>
 
           <button className="bg-[#5B8C51] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#5B8C51] transition flex items-center gap-2">
             Discover More <i className="fas fa-arrow-right"></i>
           </button>
-
         </div>
-
       </div>
     </section>
   );
