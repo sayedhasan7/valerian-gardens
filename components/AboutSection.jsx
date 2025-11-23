@@ -1,14 +1,22 @@
+import { Leaf } from "lucide-react";
 import Image from "next/image";
+import LeaveSVG from './LeaveSVG'
 
 export default function AboutSection() {
   return (
-    <section className="py-20 px-6 bg-[#F8F7F0]">
+    <section className="py-20 pb-28 px-6 bg-[#F8F7F0] overflow-hidden relative">
+      <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block left-0 -bottom-12 rotate-45 opacity-10 z-0"/>
+      <LeaveSVG
+  data-aos="fade-in"
+  className="absolute hidden lg:block right-0 top-12 rotate-[-45deg] scale-x-[-1] opacity-10 z-0"
+/>
+
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="relative">
           <Image
             width={1000}
             height={1000}
-            className="rounded-3xl inverted-radius-left w-full h-[700px] object-cover"
+            className="rounded-3xl inverted-radius-left w-full h-[450px] sm:h-[700px] object-cover"
             src="/about.jpeg"
             alt="About"
           />
@@ -22,8 +30,8 @@ export default function AboutSection() {
         </div>
 
         <div>
-          <p className="text-yellow-600 font-semibold mb-3 tracking-wide">
-            ABOUT US
+          <p className="text-[#404A3D] flex gap-2 items-center bg-white w-fit py-2 px-4 rounded-full font-semibold mb-3 tracking-wide">
+           <Leaf className="size-4"/> ABOUT US
           </p>
 
           <h2 className="text-4xl md:text-5xl font-bold text-[rgb(64,74,61)] mb-6 leading-tight">

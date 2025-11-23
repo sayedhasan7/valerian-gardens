@@ -1,8 +1,10 @@
 const LeaveSVG = ({
   size = 200,
   className = "",
-  color1 = "#8ba753",
-  color2 = "#88b03c",
+  color1 = "#5B8C51",
+  color2 = "#5B8C51",
+  // color1 = "#8ba753", // og color
+  // color2 = "#88b03c", // og color
   ...props
 }) => {
   return (

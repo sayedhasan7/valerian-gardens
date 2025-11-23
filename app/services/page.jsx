@@ -1,6 +1,15 @@
 import Image from "next/image";
+import HeroVideoSection from "@/components/HeroVideoSection";
 
 export default function ServicesPage() {
+    const item = {
+    title: "Our Service's",
+    breadcrumb: [{ name: "Home", link: "/" }, { name: "Service's", link: "/services" }],
+    mobileVideo: "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4",
+    video:
+      "https://res.cloudinary.com/sayed12m/video/upload/v1763749426/wr4oqn5vpbqssecrbzjn.mp4", // ⭐ replace with your video
+    desc: "Transform your space with easy home gardening tips. Grow fresh vegetables, herbs, and flowers at home—perfect for beginners.",
+  };
   const services = [
     {
       title: "Bespoke Garden Design",
@@ -37,15 +46,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-[#F8F7F0]">
       {/* Hero Section */}
-      <section className="relative py-32 px-6 bg-[#5B8C51]">
-        <div className="absolute inset-0 bg-[url('/grass.png')] bg-cover bg-center bg-no-repeat opacity-20" />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Our Services</h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            From initial consultation to aftercare, we provide comprehensive garden design services tailored to your needs.
-          </p>
-        </div>
-      </section>
+    <HeroVideoSection {...item}/>
 
       {/* Services Grid */}
       <section className="py-20 px-6">

@@ -1,4 +1,4 @@
-import { Tractor, Recycle, Apple, BadgeCheck, ArrowUpRight } from "lucide-react";
+import { Tractor, Recycle, Apple, BadgeCheck, ArrowUpRight, Leaf } from "lucide-react";
 
 export default function FeaturesSection() {
   const features = [
@@ -27,13 +27,13 @@ export default function FeaturesSection() {
 
 function FarmerCard({ icon, title }) {
   return (
-    <div className="relative w-full max-w-[450px] mx-auto">
+    <div data-aos="fade-in" className="relative w-full max-w-[450px] mx-auto">
       {/* ==== CONTENT ==== */}
       <div className="rounded-[35px] p-8 inverted-radius-2 shadow border border-gray-100 bg-white min-h-[273px] flex flex-col justify-between">
         
         {/* ICON + TITLE */}
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-[#EDDD5E] rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-[#EDDD5E] rounded-full px-4 flex items-center justify-center">
             <span className="text-gray-700">{icon}</span>
           </div>
 
@@ -54,7 +54,7 @@ function FarmerCard({ icon, title }) {
       </div>
         <div className="flex justify-end z-20 absolute bottom-2 right-0">
           <button className="w-12 h-12 bg-white border border-gray-100 shadow rounded-full flex items-center justify-center hover:scale-110 transition-all">
-            <ArrowUpRight size={20} className="text-gray-700" />
+            <Leaf size={20} className="text-gray-700" />
           </button>
         </div>
     </div>

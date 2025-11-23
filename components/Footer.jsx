@@ -1,78 +1,126 @@
+"use client";
+import { Facebook, FacebookIcon, Instagram, Linkedin, Twitter } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
+    const pathname  = usePathname();
+    if (pathname.match(/\/admin(\/|$)/)) {
+      return null;
+    }
   return (
-    <footer className="bg-yellow-400 py-16 px-6">
-      <div className="max-w-7xl mx-auto">
+    <footer className="relative bg-[#F9FAF7] pt-20 pb-10 px-6">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      {/* Decorative Leaf Graphic */}
+      {/* <div className="absolute bottom-10 left-1/4 opacity-20 pointer-events-none select-none">
+         <img
+           src="/logo.png" // replace with your leaf illustration
+           alt=""
+           className="w-40 md:w-56"
+         />
+       </div> */}
 
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center">
-                <i className="fas fa-leaf text-white text-xl"></i>
-              </div>
-              <span className="text-gray-900 text-2xl font-bold">valerian</span>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-14 relative z-10">
+
+        {/* Logo + Description + Social */}
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="flex flex-col">
+              <h1
+                className={`sm:text-xl font-semibold uppercase`}
+              >
+                Valerian Garden
+              </h1>
+              <span
+                className={`text-sm font-extralight uppercase `}
+              >
+                design
+              </span>
             </div>
-
-            <p className="text-gray-800 mb-6">Creating beautiful, sustainable gardens that connect people with nature through thoughtful design and ecological practices.</p>
-
-            <div className="flex gap-3">
-              {["facebook-f", "twitter", "instagram", "linkedin-in"].map((icon, i) => (
-                <a key={i} className="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-800 transition">
-                  <i className={`fab fa-${icon} text-white`}></i>
-                </a>
-              ))}
-            </div>
           </div>
 
-          <div>
-            <h3 className="font-bold text-xl text-gray-900 mb-6">Explore</h3>
-            <ul className="space-y-3">
-              {["About Us","Our Services","Our Projects","Latest News","Contact Us"].map((item,i)=>(
-                <li key={i}><a className="text-gray-800 hover:text-green-700">{item}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-xl text-gray-900 mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              {["Privacy Policy","Terms & Conditions","Support","FAQ","Careers"].map((item,i)=>(
-                <li key={i}><a className="text-gray-800 hover:text-green-700">{item}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-xl text-gray-900 mb-6">Contact Info</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <i className="fas fa-map-marker-alt text-green-700 mt-1"></i>
-                <span>London, United Kingdom</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <i className="fas fa-phone text-green-700 mt-1"></i>
-                <span>+44 (0) 123 456 7890</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <i className="fas fa-envelope text-green-700 mt-1"></i>
-                <span>info@valeriangardens.com</span>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div className="pt-8 border-t border-gray-700/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-800 text-sm">
-            © 2024 Valerian Gardens Design. All rights reserved.
+          <p className="text-gray-600 max-w-xs mb-6">
+            Mauris sed molestie sem. Sed vel vestibulum elit, non accumsan risus.
+            In vitae sapien viverra est Duo eu ullam inani senserit.
           </p>
 
-          <div className="flex gap-6">
-            <a className="text-gray-800 hover:text-green-700 text-sm">Privacy Policy</a>
-            <a className="text-gray-800 hover:text-green-700 text-sm">Terms of Service</a>
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
+            <button className="w-8 h-8 rounded-full border hover:cursor-pointer border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+              <FacebookIcon />
+            </button>
+            <button className="w-8 h-8 rounded-full border hover:cursor-pointer border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+              <Twitter />
+            </button>
+            <button className="w-8 h-8 rounded-full border hover:cursor-pointer border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+              <Linkedin />
+            </button>
+            <button className="w-8 h-8 rounded-full border hover:cursor-pointer border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+              <Instagram />
+            </button>
           </div>
         </div>
 
+        {/* Text Column + Links */}
+        <div className="flex flex-col">
+          <h3 className="text-xl font-semibold text-gray-800 leading-snug mb-4">
+            Professional & modern, a theme designed to help <br />
+            your business stand out from the rest.
+          </h3>
+
+          <div className="grid grid-cols-2 gap-10 mt-6">
+            {/* Useful Links */}
+            <div>
+              <h4 className="text-gray-800 font-semibold mb-3">Our Pages</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li><Link href="/">Home</Link></li>
+                <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/services">Our Service's</Link></li>
+                <li><Link href="/portfolio">Portfolio</Link></li>
+                <li><Link href="/contact-us">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            {/* Working Time */}
+            <div>
+              <h4 className="text-gray-800 font-semibold mb-3">Working Time</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>Mon - Fri: 9.00am - 5.00pm</li>
+                <li>Saturday: 10.00am - 6.00pm</li>
+                <li>Sunday Closed</li>
+              </ul>
+            </div>
+
+            {/* Address */}
+            {/* <div>
+               <h4 className="text-gray-800 font-semibold mb-3">Our Address</h4>
+               <ul className="space-y-2 text-gray-600">
+                 <li>Old Westbury 256, New York</li>
+                 <li>11201, United States</li>
+               </ul>
+             </div> */}
+          </div>
+        </div>
+
+        {/* Empty space to match original spacing */}
+        <div className="relative hidden md:block">
+          <div className="absolute bottom-10 left-1/4 opacity-20 pointer-events-none select-none">
+            <img
+              src="/logo.png" // replace with your leaf illustration
+              alt=""
+              className="w-40 md:w-56"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Border */}
+      <div className="pt-10 mt-10 border-t border-gray-300 max-w-7xl mx-auto flex flex-col md:flex-row justify-between text-gray-600 text-sm">
+        <div className="flex gap-6 mb-4 md:mb-0">
+          <span>Terms & Conditions</span>
+          <span>Privacy Policy</span>
+        </div>
+        <p>Copyright © 2024 Agrimo. All Rights Reserved.</p>
       </div>
     </footer>
   );

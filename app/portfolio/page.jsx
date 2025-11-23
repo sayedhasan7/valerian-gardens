@@ -1,6 +1,27 @@
 import Image from "next/image";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import Link from "next/link";
+import HeroVideoSection from "../../components/HeroVideoSection";
+import GallerySection from "../../components/GallerySection";
+import LeaveSVG from "../../components/LeaveSVG";
+import GlobalPresenceSection from "@/components/GlobalPresenceSection";
+import CTASection from "@/components/CTASection";
 
 export default function PortfolioPage() {
+  const item = {
+    title: "Portfolio",
+    breadcrumb: [{ name: "Home", link: "/" }, { name: "Portfolio", link: "/portfolio" }],
+    mobileVideo: "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4",
+    video:
+      "https://res.cloudinary.com/sayed12m/video/upload/v1763749426/wr4oqn5vpbqssecrbzjn.mp4", // ⭐ replace with your video
+    desc: "Transform your space with easy home gardening tips. Grow fresh vegetables, herbs, and flowers at home—perfect for beginners.",
+  };
   const projects = [
     {
       title: "Modern Family Garden",
@@ -47,20 +68,17 @@ export default function PortfolioPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8F7F0]">
+    <div className="min-h-screen bg-[#F8F7F0] overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-32 px-6 bg-[#5B8C51]">
-        <div className="absolute inset-0 bg-[url('/grass.png')] bg-cover bg-center bg-no-repeat opacity-20" />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Our Portfolio</h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Explore our collection of garden designs—each unique, sustainable, and crafted with care.
-          </p>
-        </div>
-      </section>
+      <HeroVideoSection {...item} />
+      <GallerySection secondLeafVisible={true} />
 
       {/* Featured Projects */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 relative">
+        <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block left-0 -top-10 rotate-45  z-0" />
+        <LeaveSVG data-aos="fade-in" className="absolute lg:hidden -top-24 right-0 lg:-top-10 rotate-45 scale-[-1] z-0" />
+        <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block right-0 -top-10 rotate-45 scale-[-1] z-0" />
+
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-yellow-600 font-semibold mb-3 tracking-wide">FEATURED WORK</p>
@@ -89,7 +107,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 px-6 bg-white">
+      {/* <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-yellow-600 font-semibold mb-3 tracking-wide">GALLERY</p>
@@ -110,10 +128,10 @@ export default function PortfolioPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 px-6">
+      {/* <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center bg-[#EDDD5E] rounded-3xl p-12">
           <h2 className="text-4xl font-bold text-[#404A3D] mb-6">Let&apos;s Create Your Dream Garden</h2>
           <p className="text-gray-800 mb-8 text-lg">
@@ -123,7 +141,11 @@ export default function PortfolioPage() {
             Start Your Project
           </button>
         </div>
-      </section>
+      </section> */}
+      <div className="mb-6">
+      <CTASection/>
+      </div>
+      <GlobalPresenceSection />
     </div>
   );
 }
