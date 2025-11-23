@@ -120,7 +120,7 @@ export default function Footer() {
           <span>Terms & Conditions</span>
           <span>Privacy Policy</span>
         </div>
-        <p>Copyright © 2024 Agrimo. All Rights Reserved.</p>
+        <p>Copyright © 2025 Agrimo. All Rights Reserved.</p>
       </div>
     </footer>
   );
