@@ -15,7 +15,7 @@ export default function ServicesSection() {
             <p className="text-[#404A3D] flex gap-2 items-center bg-white w-fit py-2 px-4 rounded-full font-semibold mb-3 tracking-wide">
               <Sprout className="size-4" /> What we Do
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Best Gardening Services</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white">Recent Projects</h2>
           </div>
 
           {/* <div className="flex gap-3">

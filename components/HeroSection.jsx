@@ -35,7 +35,7 @@ export default function HeroSection() {
 
 
         {/* ⭐ OVERLAY GRADIENT */}
-        <div className="absolute inset-0 bg-linear-to-b from-green-900/70 via-green-800/60 to-green-900/70 opacity-95"></div>
+        {/* <div className="absolute inset-0 bg-linear-to-b from-green-900/70 via-green-800/60 to-green-900/70 opacity-95"></div> */}
 
         {/* CONTENT */}
         <div className="relative  z-10 max-w-7xl mx-auto px-6 py-24">
