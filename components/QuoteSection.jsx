@@ -39,7 +39,7 @@ export default function QuoteSection() {
           </p>
 
           <h2 className="text-4xl lg:text-5xl font-bold text-[#404A3D] mb-8">
-            Get a free quote
+            Book a consultation
           </h2>
 
           {/* FORM */}

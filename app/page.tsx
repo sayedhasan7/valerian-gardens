@@ -84,7 +84,7 @@ export default function Page() {
       <TestimonialsSection />
       <HistorySection />
       <QuoteSection />
-      <GlobalPresenceSection />
+      {/* <GlobalPresenceSection /> */}
     </AOSWrapper>
   );
 }

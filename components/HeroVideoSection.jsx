@@ -14,7 +14,7 @@ export default function HeroVideoSection({
   breadcrumb = [],
   video,
   mobileVideo,
-  overlay = "from-green-900/70 via-green-800/60 to-green-900/70 opacity-95",
+  // overlay = "from-green-900/70 via-green-800/60 to-green-900/70 opacity-95",
 }) {
   return (
     <section className="w-full overflow-hidden bg-[#F8F7F0] sm:p-5 p-2">
@@ -34,7 +34,7 @@ export default function HeroVideoSection({
         </video>
 
         {/* OVERLAY */}
-        <div className={`absolute inset-0 bg-linear-to-b ${overlay}`}></div>
+        {/* <div className={`absolute inset-0 bg-linear-to-b ${overlay}`}></div> */}
 
         <div className="relative h-[50vh] z-10 max-w-7xl mx-auto px-6 flex items-baseline-last">
           <div className="md:px-5 xl:px-0 mb-24">
