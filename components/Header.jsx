@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Image src="/logo.png" height={50} width={40} alt="logo" />
             <div className="flex flex-col justify-center items-start">
-              <h1 className="text-xl font-semibold uppercase">Valerian Garden</h1>
+              <h1 className="text-xl font-semibold uppercase">Valerian Gardens</h1>
               <div className="-mt-1 text-lg font-extralight uppercase">design</div>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function Header() {
               className={`sm:text-xl font-semibold uppercase ${isSticky ? "text-black" : "text-white"
                 }`}
             >
-              Valerian Garden
+              Valerian Gardens
             </h1>
             <span
               className={`text-sm font-extralight uppercase ${isSticky ? "text-black" : "text-white"

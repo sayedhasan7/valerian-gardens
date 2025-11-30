@@ -6,7 +6,7 @@ import { ScrollVelocityContainer, ScrollVelocityRow } from "./ui/scroll-based-ve
 export default function AgricultureTicker() {
   return (
     <div className="relative w-full flex items-center bg-[#F8F7F0] justify-center overflow-hidden pb-12">
-      <ScrollVelocityContainer className="text-4xl md:text-7xl font-bold tracking-tight flex gap-10 whitespace-nowrap">
+      <ScrollVelocityContainer className="text-xl md:text-3xl font-bold tracking-tight flex gap-10 whitespace-nowrap">
         
         {/* Row 01 */}
         <ScrollVelocityRow baseVelocity={3} direction={-1}>
@@ -22,14 +22,13 @@ export default function AgricultureTicker() {
 function TickerContent() {
   return (
     <div className="flex items-center gap-12">
-      <TickerWord text="beautiful" />
       <StarIcon />
-      <TickerWord text="sustainable" />
+      <TickerWord text="Let us help you reimagine your outdoor space." />
       <StarIcon />
-      <TickerWord text="Organic" />
-      <StarIcon />
-      <TickerWord text="Uniquely" />
-      <StarIcon />
+      <TickerWord text="Design, Grow, Enjoy" />
+      <StarIcon/>
+      <TickerWord text="Let your garden bloom !!!" />
+      <StarIcon/>
     </div>
   );
 }
@@ -37,7 +36,7 @@ function TickerContent() {
 /* Word Style WITH STROKE */
 function TickerWord({ text }) {
   return (
-    <span className="ticker-text text-[#404A3D] uppercase select-none">
+    <span className="text-[#404A3D] capitalize font-signika">
       {text}
     </span>
   );

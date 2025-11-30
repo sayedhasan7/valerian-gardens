@@ -29,9 +29,6 @@ export default function TestimonialsSection() {
     const [allReviews, setAllReviews] = useState([]);
     const [visibleCount, setVisibleCount] = useState(3);
 
-    // ============================
-    // FETCH REVIEWS FROM BACKEND
-    // ============================
     useEffect(() => {
         async function fetchReviews() {
             try {
