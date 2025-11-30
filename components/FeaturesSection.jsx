@@ -9,7 +9,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className=" px-2 sm:px-6 bg-[#F8F7F0]">
+    <section className=" px-2 sm:px-4 bg-[#F8F7F0]">
       <div className="mx-auto grid pt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {features.map((item, i) => (
@@ -27,7 +27,7 @@ export default function FeaturesSection() {
 
 function FarmerCard({ icon, title }) {
   return (
-    <div data-aos="fade-in" className="relative w-full max-w-[450px] mx-auto">
+    <div data-aos="fade-in" className="relative w-full mx-auto">
       {/* ==== CONTENT ==== */}
       <div className="rounded-[35px] p-8 inverted-radius-2 shadow border border-gray-100 bg-white min-h-[273px] flex flex-col justify-between">
         

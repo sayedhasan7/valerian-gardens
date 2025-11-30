@@ -77,9 +77,9 @@ export default function Page() {
   return (
     <AOSWrapper>
       <HeroSection />
-      <PartnersSection/>
       <FeaturesSection />
       <AboutSection />
+      <PartnersSection/>
       <ServicesSection />
       <ChooseSection />
       <GallerySection />

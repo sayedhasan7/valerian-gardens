@@ -45,9 +45,6 @@ With a focus on thoughtful design, sustainable practices, and artistic detail, w
           Your browser does not support the video tag.
         </video>
 
-        {/* ⭐ OVERLAY GRADIENT */}
-        <div className="absolute inset-0 backdrop-blur-xl h-24 opacity-50"></div>
-
         {/* CONTENT */}
         <div className="relative  z-10 max-w-7xl mx-auto px-6 py-24">
           <div className="md:px-5 xl:px-0 pt-14">
@@ -59,7 +56,7 @@ With a focus on thoughtful design, sustainable practices, and artistic detail, w
 
             <h1
               data-aos="fade-in"
-              className="text-white text-4xl font-signika sm:text-5xl md:text-7xl font-bold leading-tight mb-6"
+              className="text-white text-4xl font-signika sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
             >
               {item.title}
               <br />

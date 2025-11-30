@@ -5,11 +5,15 @@ import LeaveSVG from './LeaveSVG'
 export default function AboutSection() {
   return (
     <section className="py-20 pb-28 px-6 bg-[#F8F7F0] overflow-hidden relative">
-      <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block left-0 -bottom-12 rotate-45 opacity-10 z-0"/>
+      <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block left-0 -bottom-12 rotate-45 opacity-10 z-0" />
       <LeaveSVG
-  data-aos="fade-in"
-  className="absolute hidden lg:block right-0 top-12 rotate-[-45deg] scale-x-[-1] opacity-10 z-0"
-/>
+        data-aos="fade-in"
+        className="absolute hidden lg:block right-0 top-12 rotate-[-45deg] scale-x-[-1] opacity-10 z-0"
+      />
+      <LeaveSVG
+        data-aos="fade-in"
+        className="absolute lg:block right-0 -bottom-16 lg:-bottom-12 rotate-[-45deg] scale-x-[-1] opacity-10 z-0"
+      />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="relative">
@@ -22,16 +26,13 @@ export default function AboutSection() {
           />
 
           <div className="absolute top-0 right-0 bg-[#EDDD5E] p-6 rounded-2xl">
-            <p className="text-4xl font-bold text-[#404A3D]">
-              <span className="text-[#5B8C51]">*</span> #3+
-            </p>
-            <p className="text-[#666666] font-semibold">Years of gardening</p>
+            <Image src={"/logo.png"} alt="logo" height={48} width={48} className="h-full w-full" />
           </div>
         </div>
 
         <div>
           <p className="text-[#404A3D] flex gap-2 items-center bg-white w-fit py-2 px-4 rounded-full font-semibold mb-3 tracking-wide">
-           <Leaf className="size-4"/> ABOUT US
+            <Leaf className="size-4" /> ABOUT US
           </p>
 
           <h2 className="text-4xl md:text-5xl font-bold text-[rgb(64,74,61)] mb-6 leading-tight">
