@@ -4,13 +4,16 @@ import Link from "next/link";
 
 export default function HeroSection() {
   const item = {
-    title: "Grow Fresh, Live Fresh",
-    title2: "Home Gardening Essentials",
+    title: `Welcome to Valerian Gardens Design, 
+At Valerian Gardens Design, we help to bring beauty, harmony, and functionality to outdoor spaces.  
+`,
     mobileVideo:
       "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4",
     video:
       "https://res.cloudinary.com/sayed12m/video/upload/v1763749426/wr4oqn5vpbqssecrbzjn.mp4", // ⭐ replace with your video
-    desc: "Transform your space with easy home gardening tips. Grow fresh vegetables, herbs, and flowers at home—perfect for beginners.",
+    desc: `At Valerian Gardens, Whether you're dreaming of a peaceful garden retreat, a modern outdoor living area, or a complete landscape transformation, we're here to help you design a space that reflects your style and enhances your lifestyle.
+With a focus on thoughtful design, sustainable practices, and artistic detail, we create gardens that grow with you-spaces that feel alive, personal, and timeless.
+`,
   };
 
   return (
@@ -55,11 +58,9 @@ export default function HeroSection() {
 
             <h1
               data-aos="fade-in"
-              className="text-white text-4xl font-signika sm:text-5xl md:text-7xl font-bold leading-tight mb-6"
+              className="text-white text-3xl w-4/6 font-signika sm:text-4xl md:text-5xl font-semibold leading-tight mb-6"
             >
               {item.title}
-              <br />
-              {item.title2}
             </h1>
 
             <p
@@ -71,7 +72,11 @@ export default function HeroSection() {
 
             <Link
               href={"/contact-us"}
-              className="bg-white w-fit text-gray-900 px-8 py-4 font-semibold hover:bg-gray-100 transition-all flex items-center rounded-full gap-2"
+              className="bg-white w-fit text-green-900 px-6 py-3 font-semibold 
+hover:bg-green-900 hover:text-white 
+transition-all duration-300 ease-in-out 
+flex items-center rounded-full gap-2"
+
             >
               Contact Us
               <svg

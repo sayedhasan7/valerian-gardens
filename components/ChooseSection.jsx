@@ -17,14 +17,14 @@ import LeaveSVG from "./LeaveSVG";
 const items = [
   {
     num: "01",
-    title: "Initial Consultation",
-    desc: "Understanding your vision, taking client's brief and current circumstances",
+    title: "Consultation",
+    desc: "Where taking clients brief and current circumstances",
     Icon: Users,
   },
   {
     num: "02",
-    title: "Survey & Analysis",
-    desc: "Site visit to assess aspect, soil conditions, and existing plants",
+    title: "Survey and analysis",
+    desc: "Another visit to take details of aspect, soil, existing plants",
     Icon: Search,
   },
   {
