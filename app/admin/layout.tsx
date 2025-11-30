@@ -32,9 +32,13 @@ export default function AdminLayout({ children }: any) {
   if (loading) return <div className="p-6">Checking authentication...</div>;
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      {verified && isLoggedIn() && <AdminSidebar />}
-      <main className="flex-1 p-6 overflow-y-auto">{children}</main>
+    <div className="flex min-h-screen bg-gray-50">
+      {verified && isLoggedIn() ? <AdminSidebar >
+        <main className="flex-1 p-5 md:p-0">{children}</main>
+      </AdminSidebar>
+      :
+      <main className="flex-1 p-6 h-full">{children}</main>
+      }
     </div>
   );
 }

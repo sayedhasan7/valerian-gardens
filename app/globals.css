@@ -56,7 +56,6 @@ body {
   outline-offset: 4px;
 }
 
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -95,6 +94,24 @@ body {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 :root {
@@ -196,7 +213,6 @@ body {
   background-repeat: no-repeat;
 }
 
-
 @media (max-width: 1024px) {
   .inverted-radius {
     --r: 15px;
@@ -229,7 +245,6 @@ body {
     display: none;
   }
 }
-
 
 /* HTML: <div class="inverted-radius"></div> */
 .inverted-radius-2 {
@@ -409,14 +424,13 @@ body {
   font-weight: 900;
 }
 
-
 /* HTML: <div class="inverted-radius"></div> */
 .inverted-radius-6 {
   --r: 20px; /* the radius */
   --s: 30px; /* size of inner curve */
   --x: 20px; /* horizontal offset (no percentane) */
   --y: 10px; /* vertical offset (no percentage) */
-  
+
   border-radius: var(--r);
   --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
   --_g:conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),#0000 25%,#000 0);

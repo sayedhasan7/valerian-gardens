@@ -24,7 +24,7 @@ export default function AdminContacts() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Contact Messages</h1>
+      <h1 className="text-3xl font-bold pb-3 mb-6 border-b-2">Contact Messages</h1>
 
       <div className="grid gap-4">
         {data.map((c: any) => (

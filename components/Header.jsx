@@ -1,38 +1,56 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
-import { Menu, Phone, PhoneCall } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, PhoneCall } from "lucide-react";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const pathname  = usePathname();
+  const pathname = usePathname();
   if (pathname.match(/\/admin(\/|$)/)) {
     return null;
   }
+
   const [openMega, setOpenMega] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+
+  // 🔥 NEW: Services fetched from API
+  const [services, setServices] = useState([]);
+
+  // Convert slug → Title
+  const formatSlug = (slug) =>
+    slug
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+
+  useEffect(() => {
+    async function loadServices() {
+      try {
+        const res = await fetch("http://localhost:4000/api/services/get/all");
+        const data = await res.json();
+        setServices(data.services || []);
+      } catch (err) {
+        console.log("Service fetch error:", err);
+      }
+    }
+    loadServices();
+  }, []);
 
   const megaMenuData = {
     services: [
       {
         items: [
-          "Bespoke garden design",
-          "Specialised Planting Plan",
-          "Ordering Plants",
-          "Implementation",
-          "Aftercare",
+          // 🔥 REPLACED WITH API DATA
+          ...services.map((s) => formatSlug(s.slug)),
         ],
       },
     ],
@@ -72,13 +90,12 @@ export default function Header() {
             </AccordionTrigger>
 
             <AccordionContent className="pl-2 mt-3">
-              {megaMenuData.services[0].items.map((item, i) => (
-                <li
-                  key={i}
-                  className="text-gray-700 hover:text-[#EDDD5E] cursor-pointer list-none"
-                >
-                  {item}
-                </li>
+              {services.map((service) => (
+                <Link key={service._id} href={`/services/${service.slug}`}>
+                  <li className="text-gray-700 hover:text-[#EDDD5E] cursor-pointer list-none">
+                    {formatSlug(service.slug)}
+                  </li>
+                </Link>
               ))}
             </AccordionContent>
           </AccordionItem>
@@ -105,10 +122,12 @@ export default function Header() {
   const MegaMenu = ({ isSticky }) => (
     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] animate-fadeIn">
       <ul className={`space-y-2 mt-8 border-t-4 border-[#EDDD5E] bg-[#F8F7F0] text-gray-800 shadow-xl rounded-xl p-8`}>
-        {megaMenuData.services[0].items.map((item, i) => (
-          <li key={i} className="hover:text-[#5B8C51] cursor-pointer">
-            {item}
-          </li>
+        {services.map((service) => (
+          <Link key={service._id} href={`/services/${service.slug}`}>
+            <li className="hover:text-[#5B8C51] cursor-pointer">
+              {formatSlug(service.slug)}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
@@ -173,7 +192,6 @@ export default function Header() {
 
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
-          {/* PHONE ICON */}
           <div className={`border-r-2 ${isSticky ? "border-gray-300" : "border-transparent"}`}>
             <div
               className={`lg:hidden mr-2 hover:cursor-pointer sm:block hidden transition-all sm:mr-5 xl:flex items-center rounded-full sm:border gap-3 p-2 bg-white`}
@@ -182,7 +200,6 @@ export default function Header() {
             </div>
           </div>
 
-          {/* MOBILE MENU */}
           <Sheet>
             <SheetTrigger asChild>
               <button
@@ -195,12 +212,10 @@ export default function Header() {
             <MobileSidebar />
           </Sheet>
 
-          {/* BUTTON */}
           <Link
-          href={"/contact-us"}
+            href={"/contact-us"}
             className={`hidden lg:flex items-center px-6 py-3 rounded-full font-semibold text-sm gap-2 whitespace-nowrap
-            ${isSticky ? "bg-[#EDDD5E] text-gray-900" : "bg-[#EDDD5E] text-gray-900"}
-          `}
+            ${isSticky ? "bg-[#EDDD5E] text-gray-900" : "bg-[#EDDD5E] text-gray-900"}`}
           >
             Get In Touch
           </Link>

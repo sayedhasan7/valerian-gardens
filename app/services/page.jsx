@@ -7,7 +7,7 @@ export default function ServicesPage() {
     breadcrumb: [{ name: "Home", link: "/" }, { name: "Service's", link: "/services" }],
     mobileVideo: "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4",
     video:
-      "https://res.cloudinary.com/sayed12m/video/upload/v1763749426/wr4oqn5vpbqssecrbzjn.mp4", // ⭐ replace with your video
+      "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4", // ⭐ replace with your video
     desc: "Transform your space with easy home gardening tips. Grow fresh vegetables, herbs, and flowers at home—perfect for beginners.",
   };
   const services = [

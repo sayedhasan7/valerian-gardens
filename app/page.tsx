@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import AOSWrapper from "@/components/AOSWrapper";
 import Preloader from "@/components/PreLoader";
+import PartnersSection from "@/components/PartnersSection";
 
 // Dynamic imports with no SSR to prevent hydration issues with AOS
 const HeroSection = dynamic(() => import("@/components/HeroSection"), {
@@ -76,6 +77,7 @@ export default function Page() {
   return (
     <AOSWrapper>
       <HeroSection />
+      <PartnersSection/>
       <FeaturesSection />
       <AboutSection />
       <ServicesSection />
