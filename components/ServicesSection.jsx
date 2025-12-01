@@ -13,9 +13,9 @@ export default function ServicesSection() {
         <div className="flex justify-between items-end mb-12">
           <div>
             <p className="text-[#404A3D] flex gap-2 items-center bg-white w-fit py-2 px-4 rounded-full font-semibold mb-3 tracking-wide">
-              <Sprout className="size-4" /> What we Do
+              <Sprout className="size-4" /> What We Do.
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Recent Projects</h2>
+            <h2 className="text-4xl md:text-5xl font-semibold text-white">Services</h2>
           </div>
 
           {/* <div className="flex gap-3">
@@ -34,7 +34,7 @@ export default function ServicesSection() {
             <div
               key={i}
               data-aos="fade-in-up"
-              className="relative group cursor-pointer"   // <-- ADD group here
+              className="relative group cursor-pointer"   
             >
               <Card
                 className="relative md:max-w-md h-full inverted-radius-4 shadow-none 
@@ -65,7 +65,7 @@ export default function ServicesSection() {
               </Card>
 
               <button
-                className="arrow-btn group-hover:rotate-45 cursor-pointer 
+                className="arrow-btn hover:rotate-45 cursor-pointer 
                absolute bottom-0 z-10 right-0 w-12 h-12 
                bg-[#EDDD5E] rounded-full flex items-center 
                justify-center transition-all duration-300"

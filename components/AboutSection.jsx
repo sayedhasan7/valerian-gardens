@@ -1,7 +1,7 @@
 import { Leaf } from "lucide-react";
 import Image from "next/image";
-import LeaveSVG from './LeaveSVG'
-
+import LeaveSVG from "./LeaveSVG";
+import logo from "../public/logo.png";
 export default function AboutSection() {
   return (
     <section className="py-20 pb-28 px-6 bg-[#F8F7F0] overflow-hidden relative">
@@ -35,42 +35,47 @@ export default function AboutSection() {
             <Leaf className="size-4" /> ABOUT US
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-[rgb(64,74,61)] mb-6 leading-tight">
-            Hello, I&apos;m Donata
+          <h2 className="text-3xl md:text-4xl font-semibold text-[rgb(64,74,61)] mb-6 leading-tight">
+            Hello, and welcome!
           </h2>
 
           <div className="text-gray-600 mb-8 leading-relaxed flex flex-col gap-4">
             <p>
-              I&apos;m a garden designer passionate about creating spaces that
-              connect people with nature.
+              I’m Donata, a garden designer passionate about creating spaces
+              that connect people with nature.
             </p>
             <p>
               After completing three years of Garden Design at the renowned{" "}
-              <span className="font-bold">Capel Manor College</span> in London,
-              I began to specialise in ecological and sustainable planting. My
-              work is inspired by nature and focuses on crafting gardens that
+              <span className="font-bold">Capel Manor College in London</span> ,
+              I began to specialise in{" "}
+              <span className="font-bold">
+                ecological and sustainable planting.
+              </span>{" "}
+              My work is inspired by nature and focuses on crafting gardens that
               are not only beautiful, but also resilient, wildlife-friendly, and
               in harmony with their surroundings.
             </p>
             <p>
               Every project begins with understanding how a garden will be used
               and how it can enhance the lives of those who spend time in it.
-              Whether it&apos;s a small city courtyard, a modern family garden,
-              or a naturalistic landscape, I aim to bring together form,
-              texture, and planting to create places that feel alive throughout
-              the seasons. I believe a successful garden should evolve
-              gracefully over time, supporting biodiversity while offering a
-              calm, restorative space for people. By combining design creativity
-              with a respect for ecology, my goal is to create gardens that are
-              both environmentally responsible and deeply personal.
+              Whether it’s a small city courtyard, a modern family garden, or a
+              naturalistic landscape, I aim to bring together form, texture, and
+              planting to create places that feel alive throughout the seasons.
             </p>
             <p>
-              Let&apos;s grow something beautiful, sustainable, and uniquely
-              yours!
+              I believe a successful garden should evolve gracefully over time,
+              supporting biodiversity while offering a calm, restorative space
+              for people. By combining design creativity with a respect for
+              ecology, my goal is to create gardens that are both
+              environmentally responsible and deeply personal.
+            </p>
+            <p>
+              {" "}
+              Let’s grow something beautiful, sustainable, and uniquely yours!
             </p>
           </div>
 
-          <button className="bg-[#5B8C51] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#5B8C51] transition flex items-center gap-2">
+          <button className="bg-[#5B8C51] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#5B8C51] transition flex items-center gap-2">
             Discover More <i className="fas fa-arrow-right"></i>
           </button>
         </div>

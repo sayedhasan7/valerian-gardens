@@ -24,35 +24,23 @@ export default function PortfolioPage() {
   };
   const projects = [
     {
-      title: "Modern Family Garden",
+      title: "Contemporary Garden",
       category: "Residential",
       image: "/garden-1.jpeg",
       description: "A contemporary family garden featuring sustainable planting and wildlife-friendly design elements."
     },
     {
-      title: "Courtyard Oasis",
+      title: "Woodland Lady’s Delight ( Brentford )",
       category: "Urban Design",
       image: "/garden-2.jpeg",
       description: "Transformed a small city courtyard into a peaceful retreat with layered planting and natural materials."
     },
     {
-      title: "Naturalistic Landscape",
+      title: "Jubilee Celebration ( Hounslow )",
       category: "Ecological",
       image: "/garden-3.jpeg",
       description: "A naturalistic garden design that supports biodiversity and creates year-round visual interest."
     },
-    {
-      title: "Cottage Garden Revival",
-      category: "Traditional",
-      image: "/garden-4.jpeg",
-      description: "Classic cottage garden with mixed borders, featuring perennials, herbs, and seasonal blooms."
-    },
-    {
-      title: "Sustainable Garden",
-      category: "Eco-Friendly",
-      image: "/garden-5.jpeg",
-      description: "Environmentally responsible design using native plants, rain gardens, and composting areas."
-    }
   ];
 
   const gardenImages = [

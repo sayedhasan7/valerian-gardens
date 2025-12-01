@@ -40,8 +40,8 @@ export default function Footer() {
           </div>
 
           <p className="text-gray-600 max-w-xs mb-6">
-            Mauris sed molestie sem. Sed vel vestibulum elit, non accumsan risus.
-            In vitae sapien viverra est Duo eu ullam inani senserit.
+            {/* Mauris sed molestie sem. Sed vel vestibulum elit, non accumsan risus.
+            In vitae sapien viverra est Duo eu ullam inani senserit. */}
           </p>
 
           {/* Social Icons */}

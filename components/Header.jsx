@@ -262,7 +262,7 @@ export default function Header() {
                 isSticky ? "text-black" : "text-white"
               }`}
             >
-              Valerian Garden
+              Valerian Gardens
             </h1>
             <span
               className={`text-sm font-extralight uppercase ${
