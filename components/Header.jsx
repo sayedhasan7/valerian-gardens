@@ -63,11 +63,11 @@ export default function Header() {
       </SheetHeader>
 
       <nav className="flex flex-col gap-4 text-gray-800 font-medium mt-4">
-        <Link href={"/"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>HOME</Link>
+        <Link href={"/"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>HOME</Link>
 
         <Accordion type="single" collapsible>
           <AccordionItem value="services">
-            <AccordionTrigger className="font-semibold text-gray-800 hover:text-[#EDDD5E]">
+            <AccordionTrigger className="font-semibold text-gray-800 hover:text-[#8b8e7c]">
               SERVICES
             </AccordionTrigger>
 
@@ -75,7 +75,7 @@ export default function Header() {
               {megaMenuData.services[0].items.map((item, i) => (
                 <li
                   key={i}
-                  className="text-gray-700 hover:text-[#EDDD5E] cursor-pointer list-none"
+                  className="text-gray-700 hover:text-[#8b8e7c] cursor-pointer list-none"
                 >
                   {item}
                 </li>
@@ -84,29 +84,29 @@ export default function Header() {
           </AccordionItem>
         </Accordion>
 
-        <Link data-slot="sheet-close" href={"/portfolio"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>PORTFOLIO</Link>
-        <Link data-slot="sheet-close" href={"/about"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>About US</Link>
-        <Link data-slot="sheet-close" href={"/contact-us"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>CONTACT US</Link>
+        <Link data-slot="sheet-close" href={"/portfolio"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>PORTFOLIO</Link>
+        <Link data-slot="sheet-close" href={"/about"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>About US</Link>
+        <Link data-slot="sheet-close" href={"/contact-us"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>CONTACT US</Link>
       </nav>
 
       <div className="mt-8 flex items-center gap-3">
-        <PhoneCall className="w-5 h-5 text-[#EDDD5E]" />
+        <PhoneCall className="w-5 h-5 text-[#8b8e7c]" />
         <div>
           <p className="text-gray-500 text-sm">Call Us</p>
           <p className="font-semibold text-gray-800">+1(212)255-511</p>
         </div>
       </div>
 
-      <Link href={"/contact-us"} className="bg-[#EDDD5E] p-2 rounded text-center font-medium text-gray-900 mt-8 w-full">Get In Touch</Link>
+      <Link href={"/contact-us"} className="bg-[#8b8e7c]/90 hover:bg-[#8b8e7c] p-2 rounded text-center font-medium text-white mt-8 w-full">Get In Touch</Link>
     </SheetContent>
   );
 
   // ============ MEGA MENU ============
   const MegaMenu = ({ isSticky }) => (
     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] animate-fadeIn">
-      <ul className={`space-y-2 mt-8 border-t-4 border-[#EDDD5E] bg-[#F8F7F0] text-gray-800 shadow-xl rounded-xl p-8`}>
+      <ul className={`space-y-2 mt-8 border-t-4 border-[#8b8e7c] bg-[#F8F7F0] text-gray-800 shadow-xl rounded-xl p-8`}>
         {megaMenuData.services[0].items.map((item, i) => (
-          <li key={i} className="hover:text-[#5B8C51] cursor-pointer">
+          <li key={i} className="hover:text-[#8b8e7c] cursor-pointer">
             {item}
           </li>
         ))}
@@ -136,13 +136,16 @@ export default function Header() {
 
           <div className="flex flex-col">
             <h1
-              className={`sm:text-xl font-semibold uppercase ${isSticky ? "text-black" : "text-white"
+              className={`sm:text-xl font-signika font-semibold uppercase ${isSticky ? "text-black" : "text-white"
                 }`}
             >
-              Valerian Gardens
+              Valerian 
+            </h1>
+            <h1>
+              Gardens
             </h1>
             <span
-              className={`text-sm font-extralight uppercase ${isSticky ? "text-black" : "text-white"
+              className={`text-sm font-signika glfont-extralight uppercase ${isSticky ? "text-black" : "text-white"
                 }`}
             >
               design
@@ -155,20 +158,20 @@ export default function Header() {
           className={`hidden lg:flex items-center gap-8 ${isSticky ? "text-black" : "text-white"
             }`}
         >
-          <Link href={"/"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>HOME</Link>
+          <Link href={"/"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>HOME</Link>
 
           <div
             className="relative"
             onMouseEnter={() => setOpenMega(true)}
             onMouseLeave={() => setOpenMega(false)}
           >
-            <button className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>SERVICES</button>
+            <button className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>SERVICES</button>
             {openMega && <MegaMenu isSticky={isSticky} />}
           </div>
 
-          <Link href={"/portfolio"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>PORTFOLIO</Link>
-          <Link href={"/about"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>About US</Link>
-          <Link href={"/contact-us"} className={`${!isSticky ? "hover:text-[#EDDD5E]" : "hover:text-[#404A3D]"} uppercase`}>CONTACT</Link>
+          <Link href={"/portfolio"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>PORTFOLIO</Link>
+          <Link href={"/about"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>About US</Link>
+          <Link href={"/contact-us"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>CONTACT</Link>
         </nav>
 
         {/* RIGHT SIDE */}
@@ -199,7 +202,7 @@ export default function Header() {
           <Link
           href={"/contact-us"}
             className={`hidden lg:flex items-center px-6 py-3 rounded-full font-semibold text-sm gap-2 whitespace-nowrap
-            ${isSticky ? "bg-[#EDDD5E] text-gray-900" : "bg-[#EDDD5E] text-gray-900"}
+            ${isSticky ? "bg-[#8b8e7c] text-white" : "bg-[#8b8e7c] text-white"}
           `}
           >
             Get In Touch

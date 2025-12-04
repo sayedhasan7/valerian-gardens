@@ -4,8 +4,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   const item = {
-    title: `Welcome to Valerian Gardens Design, 
-At Valerian Gardens Design, we help to bring beauty, harmony, and functionality to outdoor spaces.  
+    title: `Welcome to Valerian Gardens Design We help to bring beauty, harmony, and functionality to outdoor spaces.  
 `,
     mobileVideo:
       "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4",
@@ -72,8 +71,8 @@ With a focus on thoughtful design, sustainable practices, and artistic detail, w
 
             <Link
               href={"/contact-us"}
-              className="bg-white w-fit text-green-900 px-6 py-3 font-semibold 
-hover:bg-green-900 hover:text-white 
+              className="bg-white w-fit text-[#8b8e7c] px-6 py-3 font-semibold 
+hover:bg-[#8b8e7c] hover:text-white 
 transition-all duration-300 ease-in-out 
 flex items-center rounded-full gap-2"
 

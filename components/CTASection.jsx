@@ -29,7 +29,7 @@ export default function CTASection() {
             
             {/* Badge */}
             {/* <div className="flex items-center gap-2 bg-white py-2 px-4 rounded-full w-fit mb-5 shadow">
-              <Leaf size={14} className="text-[#5B8C51]" />
+              <Leaf size={14} className="text-[#8b8e7c]" />
               <span className="text-sm font-semibold text-gray-800">What We Do</span>
             </div> */}
 

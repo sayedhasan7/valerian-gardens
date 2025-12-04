@@ -120,12 +120,12 @@ export default function PortfolioPage() {
 
       {/* CTA Section */}
       {/* <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center bg-[#EDDD5E] rounded-3xl p-12">
+        <div className="max-w-4xl mx-auto text-center bg-[#8b8e7c] rounded-3xl p-12">
           <h2 className="text-4xl font-bold text-[#404A3D] mb-6">Let&apos;s Create Your Dream Garden</h2>
           <p className="text-gray-800 mb-8 text-lg">
             Every garden tells a story. Let us help you tell yours.
           </p>
-          <button className="bg-[#5B8C51] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#4a7441] transition-all">
+          <button className="bg-[#8b8e7c] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#4a7441] transition-all">
             Start Your Project
           </button>
         </div>

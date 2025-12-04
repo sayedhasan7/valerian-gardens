@@ -33,7 +33,7 @@ function FarmerCard({ icon, title }) {
         
         {/* ICON + TITLE */}
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-[#EDDD5E] rounded-full px-4 flex items-center justify-center">
+          <div className="w-16 h-16 bg-[#8b8e7c] rounded-full px-4 flex items-center justify-center">
             <span className="text-gray-700">{icon}</span>
           </div>
 
