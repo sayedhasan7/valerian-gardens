@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+*{
+  font-family: var(--font-signika);
+}
 
 /* globals.css */
 body {
@@ -387,10 +390,10 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   color: #0000;
-  -webkit-text-stroke: 1px #5B8C51;
+  -webkit-text-stroke: 1px #8b8e7c;
   background:
-    radial-gradient(1.13em at 50% 1.6em, #5B8C51 99%, #0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,
-    radial-gradient(1.13em at 50% -0.8em, #0000 99%, #5B8C51 101%) 50% .8em/3.2em 100% repeat-x text;
+    radial-gradient(1.13em at 50% 1.6em, #8b8e7c 99%, #0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,
+    radial-gradient(1.13em at 50% -0.8em, #0000 99%, #8b8e7c 101%) 50% .8em/3.2em 100% repeat-x text;
   animation: vgWave 2s linear infinite;
 }
 
@@ -405,7 +408,7 @@ body {
 /* TEXT STROKE GREEN FILL + WHITE OUTLINE */
 .ticker-text {
   color: transparent;               /* inside fill color (green) */
-  -webkit-text-stroke: 1px #5B8C51; /* white stroke */
+  -webkit-text-stroke: 1px #8b8e7c; /* white stroke */
   font-weight: 900;
 }
 

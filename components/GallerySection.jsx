@@ -140,7 +140,7 @@ export default function GallerySection({ secondLeafVisible = false }) {
           <div className="flex justify-center mt-10">
             <button
               onClick={loadMore}
-              className="px-6 py-3 rounded-3xl bg-[#5B8C51] text-white font-semibold"
+              className="px-6 py-3 rounded-3xl bg-[#8b8e7c] text-white font-semibold"
             >
               Load More
             </button>

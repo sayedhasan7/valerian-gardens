@@ -75,14 +75,11 @@ export default function Page() {
   return (
     <AOSWrapper>
       <HeroSection />
-      <PartnersSection/>
-      <FeaturesSection />
       <AboutSection />
       <ServicesSection />
       <ChooseSection />
       <GallerySection />
       <TestimonialsSection />
-      <HistorySection />
       <QuoteSection />
       {/* <GlobalPresenceSection /> */}
     </AOSWrapper>

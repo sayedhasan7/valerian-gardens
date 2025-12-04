@@ -5,10 +5,10 @@ import logo from "../public/logo.png";
 export default function AboutSection() {
   return (
     <section className="py-20 pb-28 px-6 bg-[#F8F7F0] overflow-hidden relative">
-      <LeaveSVG
+      {/* <LeaveSVG
         data-aos="fade-in"
-        className="absolute hidden lg:block left-0 -bottom-15 rotate-45 opacity-10 z-0"
-      />
+        className="absolute hidden lg:block left-0 -bottom-10 rotate-45 opacity-10 z-0"
+      /> */}
       <LeaveSVG
         data-aos="fade-in"
         className="absolute hidden lg:block right-0 top-12 rotate-[-45deg] scale-x-[-1] opacity-10 z-0"
@@ -24,7 +24,7 @@ export default function AboutSection() {
             alt="About"
           />
 
-          <div className="absolute top-0 right-0 bg-[#EDDD5E] p-6 rounded-2xl">
+          <div className="absolute -top-2 right-20 p-6 rounded-2xl">
             <Image src={logo} alt="logo" width={80} height={100} />
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <button className="bg-[#5B8C51] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#5B8C51] transition flex items-center gap-2">
+          <button className="bg-[#8b8e7c] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#8b8e7c] transition flex items-center gap-2">
             Discover More <i className="fas fa-arrow-right"></i>
           </button>
         </div>

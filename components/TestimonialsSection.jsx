@@ -19,7 +19,7 @@ const EmptyStar = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path
             d="M7.88838 -0.0159998C7.95238 -0.0159998 8.01638 -0.0159998 8.08038 -0.0159998C8.19771 0.0159998 8.30438 0.0799999 8.40038 0.176C8.99771 1.38133 9.74438 2.96533 10.6404 4.928C12.859 5.29067 14.5284 5.552 15.6484 5.712C15.8084 5.776 15.9204 5.87733 15.9844 6.016V6.384C15.899 6.52267 15.8084 6.64 15.7124 6.736L12.3204 10.208C12.5764 11.968 12.8484 13.728 13.1364 15.488C13.1257 15.7227 13.0137 15.888 12.8004 15.984H12.4164L10.6884 15.024C9.49371 14.352 8.59238 13.8507 7.98438 13.52L3.55238 15.984H3.16838C2.95504 15.888 2.84304 15.7227 2.83238 15.488C3.21638 13.1413 3.49371 11.3813 3.66438 10.208L0.288375 6.768C0.213708 6.68267 0.112375 6.55467 -0.015625 6.384V6.016C0.048375 5.86667 0.165708 5.76533 0.336375 5.712C1.44571 5.552 3.10971 5.29067 5.32838 4.928C5.93638 3.60533 6.68304 2.02133 7.56838 0.176C7.66438 0.0799999 7.77104 0.0159998 7.88838 -0.0159998Z"
-            fill="#EDDD5E"
+            fill="#8b8e7c"
             fillOpacity="0.5"
         />
     </svg>
@@ -105,13 +105,13 @@ export default function TestimonialsSection() {
                             key={i}>
                             {/* Comment Icon */}
                             <div
-                                className="absolute right-2 top-0 p-2 rounded-full bg-[#EDDD5E]"
+                                className="absolute right-2 top-0 p-2 rounded-full bg-trasparent border-2"
                                 size={20}
                             >  <svg
                                 width="34"
                                 height="34"
                                 viewBox="0 0 50 50"
-                                fill="none"
+                                fill="white"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                     <g clipPath="url(#clip0_1_365)">
@@ -176,7 +176,7 @@ export default function TestimonialsSection() {
                     <div className="flex justify-center mt-8">
                         <button
                             onClick={loadMore}
-                            className="px-6 py-3 rounded-3xl bg-[#5B8C51] text-white font-semibold"
+                            className="px-6 py-3 rounded-3xl bg-[#8b8e7c] text-white font-semibold"
                         >
                             Load More
                         </button>

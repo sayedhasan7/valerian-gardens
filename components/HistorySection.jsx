@@ -30,7 +30,7 @@ export default function HistorySection() {
               className="text-5xl font-bold tracking-tighter whitespace-pre-wrap text-[#404A3D] dark:text-white"
             />{item.sign}
             </span>
-            <h3 className="font-bold text-xl text-[#5B8C51]  mb-5">{item.title}</h3>
+            <h3 className="font-bold text-xl text-[#8b8e7c]  mb-5">{item.title}</h3>
             <p className="text-gray-600 text-sm">{item.desc}</p>
           </div>
         ))}

@@ -6,7 +6,7 @@ import { ArrowUpRight, ChevronLeft, CircleArrowOutUpRight, Leaf, Sprout } from "
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 pb-28 px-6 bg-[#5B8C51] relative">
+    <section className="py-24 pb-28 px-6 bg-[#8b8e7c] relative">
       <div className="absolute inset-0 bg-[url('/grass.png')] bg-cover bg-center bg-no-repeat" />
       <div className="max-w-7xl mx-auto">
 
@@ -67,7 +67,7 @@ export default function ServicesSection() {
               <button
                 className="arrow-btn hover:rotate-45 cursor-pointer 
                absolute bottom-0 z-10 right-0 w-12 h-12 
-               bg-[#EDDD5E] rounded-full flex items-center 
+               bg-white rounded-full flex items-center 
                justify-center transition-all duration-300"
               >
                 <ArrowUpRight />

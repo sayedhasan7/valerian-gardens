@@ -45,6 +45,6 @@ function TickerWord({ text }) {
 /* Yellow Star SVG  */
 function StarIcon() {
   return (
-   <Leaf color="#5B8C51"/>
+   <Leaf color="#8b8e7c"/>
   );
 }
