@@ -126,15 +126,15 @@ export default function ChooseSection() {
             <BadgeCheck className="size-4" /> Why Choose Us
           </p>
 
-          <h2 className="text-4xl md:text-5xl text=[#404A3D] font-bold ">
+          <h2 className="text-4xl md:text-5xl text=[#404A3D] font-semibold ">
             Choose What’s Perfect<br /> For Your Field
           </h2>
 
           <div className="mt-10">
             <Image
-              src="/garden-4.jpeg"
-              width={900}
-              height={600}
+              src="/logo.png"
+              width={100}
+              height={120}
               alt="Garden"
               className="rounded-3xl w-full"
             />
@@ -146,7 +146,7 @@ export default function ChooseSection() {
 
           {/* Highlight box */}
           <div
-            className="absolute left-0 w-full bg-[#EDDD5E] rounded-xl shadow-xl transition-all duration-[650ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none"
+            className="absolute left-0 w-full bg-[#8b8e7c] rounded-xl shadow-xl transition-all duration-[650ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none"
             style={highlightStyle}
           />
 
@@ -164,7 +164,7 @@ export default function ChooseSection() {
                 <div className="flex gap-6 relative z-10">
                   <div className="flex items-center justify-center w-12 h-12 px-2 sm:px-0 rounded-lg bg-white backdrop-blur-sm">
                     <item.Icon
-                      className={`w-7 h-7 transition-all ${activeIndex === i ? "text-[#6E8F5E]" : "text-[#404A3D]"
+                      className={`w-7 h-7 transition-all ${activeIndex === i ? "text-[#8b8e7c]" : "text-[#404A3D]"
                         }`}
                     />
                   </div>
@@ -172,13 +172,13 @@ export default function ChooseSection() {
 
                   <div>
                     <h3
-                      className={`text-xl font-bold transition-all ${activeIndex === i ? "text-gray-900" : "text-[#404A3D]"
+                      className={`text-xl font-semibold transition-all ${activeIndex === i ? "text-white" : "text-[#404A3D]"
                         }`}
                     >
                       {item.title}
                     </h3>
                     <p
-                      className={`text-sm mt-1 transition-all ${activeIndex === i ? "text-gray-700" : "text-[#666666]"
+                      className={`text-sm mt-1 transition-all ${activeIndex === i ? "text-gray-50" : "text-[#666666]"
                         }`}
                     >
                       {item.desc}

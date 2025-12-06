@@ -64,7 +64,7 @@ export default function ServicesPage() {
                 <ul className="space-y-3">
                   {service.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-3">
-                      <div className="w-6 h-6 bg-[#EDDD5E] rounded-full flex items-center justify-center shrink-0">
+                      <div className="w-6 h-6 bg-[#8b8e7c] rounded-full flex items-center justify-center shrink-0">
                         <i className="fas fa-check text-xs text-gray-800"></i>
                       </div>
                       <span className="text-gray-700">{feature}</span>
@@ -87,7 +87,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-[#5B8C51]">
+      <section className="py-20 px-6 bg-[#8b8e7c]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Start Your Garden Project?</h2>
           <p className="text-white/90 mb-8 text-lg">

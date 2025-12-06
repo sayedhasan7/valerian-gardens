@@ -45,7 +45,7 @@ export default function AboutPage() {
               }
             ].map((item, index) => (
               <div key={index} className="text-center p-8 rounded-3xl bg-[#F8F7F0]">
-                <div className="w-20 h-20 bg-[#EDDD5E] rounded-full mx-auto mb-6 flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#8b8e7c] rounded-full mx-auto mb-6 flex items-center justify-center">
                   <i className={`fas ${item.icon} text-3xl text-[#404A3D]`}></i>
                 </div>
                 <h3 className="text-xl font-bold text-[#404A3D] mb-3">{item.title}</h3>
