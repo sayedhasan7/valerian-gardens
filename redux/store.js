@@ -1,0 +1,9 @@
+"use client"
+import { configureStore } from "@reduxjs/toolkit";
+import serviceReducer from "./serviceSlice";
+
+export const store = configureStore({
+  reducer: {
+    services: serviceReducer,
+  },
+});

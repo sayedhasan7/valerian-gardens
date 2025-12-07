@@ -28,7 +28,7 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, filter: "grayscale(1)" }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="fixed inset-0 bg-[#F8F7F0] z-[999999] hide-scrollbar flex flex-col items-center justify-center"
+          className="fixed inset-0 bg-[#FDF6ED] z-[999999] hide-scrollbar flex flex-col items-center justify-center"
         >
           {/* LOGO WITH SHINE EFFECT */}
           <motion.div

@@ -5,6 +5,9 @@ import PreLoader from "@/components/PreLoader";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ReduxProvider from "@/components/providers/ReduxProvider"
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,10 +47,12 @@ export default function RootLayout({
         `}
       >
         <SmoothScrollProvider>
-          {/* <PreLoader /> */}
-          <Header />
-          {children}
-          <Footer />
+          <ReduxProvider>
+            {/* <PreLoader /> */}
+            <Header />
+            {children}
+            <Footer />
+          </ReduxProvider>
         </SmoothScrollProvider>
       </body>
     </html>

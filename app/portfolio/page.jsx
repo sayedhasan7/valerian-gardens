@@ -56,7 +56,7 @@ export default function PortfolioPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8F7F0] overflow-hidden">
+    <div className="min-h-screen bg-[#FDF6ED] overflow-hidden">
       {/* Hero Section */}
       <HeroVideoSection {...item} />
       <GallerySection secondLeafVisible={true} />
@@ -130,10 +130,10 @@ export default function PortfolioPage() {
           </button>
         </div>
       </section> */}
-      <div className="mb-6">
+      {/* <div className="mb-6">
       <CTASection/>
       </div>
-      <GlobalPresenceSection />
+      <GlobalPresenceSection /> */}
     </div>
   );
 }

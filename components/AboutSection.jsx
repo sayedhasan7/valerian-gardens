@@ -4,7 +4,7 @@ import LeaveSVG from "./LeaveSVG";
 import logo from "../public/logo.png";
 export default function AboutSection() {
   return (
-    <section className="py-20 pb-28 px-6 bg-[#F8F7F0] overflow-hidden relative">
+    <section className="py-20 pb-28 px-6 bg-[#FDF6ED] overflow-hidden relative">
       {/* <LeaveSVG
         data-aos="fade-in"
         className="absolute hidden lg:block left-0 -bottom-10 rotate-45 opacity-10 z-0"
@@ -24,8 +24,17 @@ export default function AboutSection() {
             alt="About"
           />
 
-          <div className="absolute top-0 right-0 bg-[#EDDD5E] p-6 rounded-2xl">
-            <Image src={"/logo.png"} alt="logo" height={48} width={48} className="h-full w-full" />
+          <div className="absolute top-0 -right-0 h-fit w-fit rounded-2xl">
+            <div className="flex items-center border shadow-xl bg-[#ffffff] p-2 pr-5 px-4 rounded-2xl gap-3">
+              <Image src="/logo.png" height={50} width={40} alt="logo" />
+              <div className="flex flex-col">
+                <h1 className=" leading-4 tracking-wide font-semibold uppercase text-[#404A3D]">
+                  Valerian <br /> Gardens
+                  <br />
+                  design
+                </h1>
+              </div>
+            </div>
           </div>
         </div>
 

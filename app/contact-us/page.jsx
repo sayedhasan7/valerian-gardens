@@ -52,10 +52,8 @@ export default function ContactUsPage() {
 
     const payload = {
       name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-      title: e.target.title.value,
-      review: e.target.review.value,
+      role: e.target.role.value,
+      text: e.target.review.value,
       rating,
     };
 
@@ -72,7 +70,7 @@ export default function ContactUsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F7F0]">
+    <div className="min-h-screen bg-[#FDF6ED]">
       <HeroVideoSection {...item} />
 
       <section className="py-20 px-6">
@@ -101,30 +99,13 @@ export default function ContactUsPage() {
                 className="w-full bg-[#F7F5EB] px-4 py-4 rounded-xl outline-none"
               />
 
-              {/* EMAIL & PHONE */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Email Address"
-                  className="bg-[#F7F5EB] px-4 py-4 rounded-xl outline-none w-full"
-                />
-                <input
-                  type="text"
-                  name="phone"
-                  required
-                  placeholder="Phone Number"
-                  className="bg-[#F7F5EB] px-4 py-4 rounded-xl outline-none w-full"
-                />
-              </div>
 
               {/* TITLE */}
               <input
                 type="text"
-                name="title"
+                name="role"
                 required
-                placeholder="Review Title"
+                placeholder="Your Designation"
                 className="w-full bg-[#F7F5EB] px-4 py-4 rounded-xl outline-none"
               />
 
@@ -192,7 +173,7 @@ export default function ContactUsPage() {
                 <PhoneCall className="text-[#404A3D]" size={32} />
                 <div>
                   <h3 className="font-semibold text-[#404A3D] mb-1">Phone</h3>
-                  <p className="text-gray-600">+44 (0) 123 456 7890</p>
+                  <p className="text-gray-600">7897433752</p>
                 </div>
               </div>
 
@@ -214,7 +195,7 @@ export default function ContactUsPage() {
               </div>
             </div>
 
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <Image
                 src="/garden-3.jpeg"
                 alt="garden"
@@ -222,7 +203,7 @@ export default function ContactUsPage() {
                 height={400}
                 className="rounded-3xl w-full h-[300px] object-cover"
               />
-            </div>
+            </div> */}
           </div>
 
         </div>

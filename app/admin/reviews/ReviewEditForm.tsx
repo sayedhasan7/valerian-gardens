@@ -20,15 +20,13 @@ export default function EditReviewForm({ data, refresh, close }: any) {
 
     async function submit(e: any) {
         e.preventDefault();
-
-        const fd = new FormData();
-        fd.append("name", e.target.name.value);
-        fd.append("role", e.target.role.value);
-        fd.append("text", e.target.text.value);
-        fd.append("rating", e.target.rating.value);
-        if (img) fd.append("image", img);
-
-        await api.put(`/reviews/${data._id}`, fd);
+        await api.put(`/reviews/${data._id}`, {
+            name: e.target.name.value,
+            role: e.target.role.value,
+            text: e.target.text.value,
+            rating: e.target.rating.value,
+            status: e.target.status.value,
+        });
         refresh();
         close();
     }
@@ -51,19 +49,16 @@ export default function EditReviewForm({ data, refresh, close }: any) {
                         required
                     />
 
-                    {/* IMAGE PREVIEW */}
-                    <div className="space-y-2">
-                        <p className="font-medium">Current Image Preview</p>
-                        <img
-                            src={preview}
-                            className="w-32 h-32 rounded-lg object-cover border"
-                        />
-                    </div>
+                    <select name="status" defaultValue={data.status} className="border p-2 rounded w-full">
+                        <option value="published">Published</option>
+                        <option value="unpublished">Unpublished</option>
+                    </select>
+
 
                     {/* CHANGE IMAGE */}
-                    <div>
+                    {/* <div>
                         <input type="file" accept="image/*" onChange={handleImageChange} />
-                    </div>
+                    </div> */}
 
                     <Button className="w-full">Save Changes</Button>
                 </form>

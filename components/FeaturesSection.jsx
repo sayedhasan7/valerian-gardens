@@ -9,8 +9,8 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className=" px-2 sm:px-4 bg-[#F8F7F0]">
-      <div className="mx-auto grid pt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <section className=" px-5 sm:px-24 bg-[#FDF6ED]">
+      <div className="mx-auto container grid pt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {features.map((item, i) => (
           <FarmerCard key={i} icon={item.icon} title={item.title} />
@@ -34,7 +34,7 @@ function FarmerCard({ icon, title }) {
         {/* ICON + TITLE */}
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 bg-[#8b8e7c] rounded-full px-4 flex items-center justify-center">
-            <span className="text-gray-700">{icon}</span>
+            <span className="text-gray-50">{icon}</span>
           </div>
 
           <h2 className="text-xl font-semibold text-[#404A3D] leading-tight">

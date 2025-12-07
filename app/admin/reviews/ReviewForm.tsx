@@ -13,14 +13,14 @@ export default function ReviewForm({ refresh }: any) {
 
   async function submit(e: any) {
     e.preventDefault();
-    const fd = new FormData();
-    fd.append("name", e.target.name.value);
-    fd.append("role", e.target.role.value);
-    fd.append("text", e.target.text.value);
-    fd.append("rating", e.target.rating.value);
-    if (img) fd.append("image", img);
 
-    await api.post("/reviews", fd);
+    await api.post("/reviews", {
+      name: e.target.name.value,
+      role: e.target.role.value,
+      text: e.target.text.value,
+      rating: e.target.rating.value,
+      status: e.target.status.value,
+    });
     setOpen(false);
     refresh();
   }
@@ -34,16 +34,21 @@ export default function ReviewForm({ refresh }: any) {
       </DialogTitle>
       <DialogContent className="p-6 space-y-4">
         <form onSubmit={submit} className="space-y-3">
-          <h2 className="text-2xl font-bold">Add Review</h2>
           <Input name="name" placeholder="Name" required />
           <Input name="role" placeholder="Role" />
-          <Input name="rating" placeholder="Rating 1–5" type="number" required />
+          <Input name="rating" placeholder="Rating" type="number" min={1} max={5} required />
+
           <textarea name="text" placeholder="Review text" className="w-full border p-2 rounded" required />
 
-          <UploadImage onChange={setImg} />
+          {/* STATUS */}
+          <select name="status" className="border p-2 rounded w-full">
+            <option value="published">Published</option>
+            <option value="unpublished">Unpublished</option>
+          </select>
 
           <Button type="submit" className="w-full">Save</Button>
         </form>
+
       </DialogContent>
     </Dialog>
   );

@@ -66,16 +66,37 @@ export default function ReviewsPage() {
       <div className="grid gap-4">
         {reviews.map((r: any) => (
           <div key={r._id} className="p-4 bg-white rounded-lg shadow flex items-start gap-4">
-            <img src={r.imageUrl} className="w-16 h-16 min-w-16 rounded-full object-cover" />
 
             <div className="flex-1">
               <p className="font-semibold">{r.name}</p>
               <p className="text-gray-500 text-sm mb-1">{r.role}</p>
               <p className="text-gray-600">{r.text}</p>
+
+              <p className="mt-2 text-xs">
+                Status:
+                <span className={`font-semibold ml-1 ${r.status === "published" ? "text-green-600" : "text-red-500"
+                  }`}>
+                  {r.status}
+                </span>
+              </p>
             </div>
 
-            <div className="flex gap-3">
-              {/* Edit Button */}
+            <div className="flex flex-col gap-2">
+              {/* Publish / Unpublish */}
+              <Button
+                variant={r.status === "published" ? "default" : "outline"}
+                onClick={async () => {
+                  await api.put(`/reviews/${r._id}`, {
+                    ...r,
+                    status: r.status === "published" ? "unpublished" : "published",
+                  });
+                  load();
+                }}
+              >
+                {r.status === "published" ? "Unpublish" : "Publish"}
+              </Button>
+
+              {/* Edit */}
               <Button onClick={() => setEditing(r)} className="p-2 h-9 w-9 rounded-full">
                 <Edit className="h-4 w-4" />
               </Button>
@@ -116,6 +137,7 @@ export default function ReviewsPage() {
               </AlertDialog>
             </div>
           </div>
+
         ))}
       </div>
     </div>

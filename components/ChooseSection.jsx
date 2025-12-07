@@ -111,7 +111,7 @@ export default function ChooseSection() {
   }, [activeIndex]);
 
   return (
-    <section className="relative py-24 pt-38 px-6 overflow-hidden bg-[#F8F7F0]">
+    <section className="relative py-24 pt-38 px-6 overflow-hidden bg-[#FDF6ED]">
       {/* <LeaveSVG data-aos="fade-in" className="absolute  lg:block left-0 -bottom-10 rotate-45 opacity-10 z-0" /> */}
       <LeaveSVG
         data-aos="fade-in"
@@ -136,7 +136,8 @@ export default function ChooseSection() {
               width={100}
               height={120}
               alt="Garden"
-              className="rounded-3xl w-full"
+              unoptimized
+              className="rounded-3xl object-fill p-12 sm:p-24 sm:-mt-24 sm:-ml-4 w-full"
             />
           </div>
         </div>

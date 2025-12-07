@@ -17,7 +17,7 @@ With a focus on thoughtful design, sustainable practices, and artistic detail, w
   };
 
   return (
-    <section className=" w-full overflow-hidden bg-[#F8F7F0] sm:p-5 p-2">
+    <section className=" w-full overflow-hidden bg-[#FDF6ED] sm:p-5 p-2">
       <div className="relative inverted-radius">
          {/* <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div> */}
         {/* ⭐ BACKGROUND VIDEO */}
@@ -46,7 +46,7 @@ With a focus on thoughtful design, sustainable practices, and artistic detail, w
         </video>
 
         {/* CONTENT */}
-        <div className="relative  z-10 max-w-7xl mx-auto px-6 py-24">
+        <div className="relative opacity-0 z-10 max-w-7xl mx-auto px-6 py-24">
           <div className="md:px-5 xl:px-0 pt-14">
             <div data-aos="fade-in" className="inline-block mb-6">
               <span className="text-white text-sm font-medium px-6 py-2 border border-white/30 rounded-full backdrop-blur-sm">

@@ -32,46 +32,52 @@ export default async function ServicePage({ params }) {
                 title={service?.title}
                 subtitle="Our Services"
                 videoUrl="/videos/services-hero.mp4"
-                breadcrumb = {[{ name: "Home", link: "/" },{name:"Services",link:"/services"}, { name: service?.title, link: slug }]}
+                breadcrumb={[{ name: "Home", link: "/" }, { name: service?.title, link: slug }]}
             />
-            <section className="relative bg-[#F8F7F0] overflow-hidden">
-            <div className="py-20 px-6 max-w-5xl mx-auto">
-                     <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block left-0 -top-10 rotate-45  z-0" />
-                        <LeaveSVG data-aos="fade-in" className="absolute lg:hidden -top-24 right-0 lg:-top-10 rotate-45 scale-[-1] z-0" />
-                        <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block right-0 -top-10 rotate-45 scale-[-1] z-0" />
-                {service?.imageUrl && (
-                    <div className="mb-8">
-                        <Image
-                            src={service.imageUrl}
-                            alt={service.title}
-                            width={1400}
-                            height={800}
-                            className="w-full h-80 object-cover rounded-2xl"
-                        />
-                    </div>
-                )}
+            <section className="relative bg-[#FDF6ED] overflow-hidden">
+                <div className="py-20 px-6 max-w-5xl mx-auto">
+                    <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block left-0 -top-10 rotate-45  z-0" />
+                    <LeaveSVG data-aos="fade-in" className="absolute lg:hidden -top-14 right-0 lg:-top-10 rotate-45 scale-[-1] z-0" />
+                    <LeaveSVG data-aos="fade-in" className="absolute hidden lg:block right-0 -top-10 rotate-45 scale-[-1] z-0" />
+                    {service?.imageUrl && (
+                        <div className="my-8">
+                            <Image
+                                src={service.imageUrl}
+                                alt={service.title}
+                                width={1400}
+                                height={800}
+                                className="w-full h-80 object-cover rounded-2xl"
+                            />
+                        </div>
+                    )}
 
-                <h1 className="text-4xl font-bold text-[#404A3D] mb-6">
-                    {service?.title}
-                </h1>
+                    <h1 className="text-4xl font-bold text-[#404A3D] mb-6">
+                        {service?.title}
+                    </h1>
 
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                    {service.description}
-                </p>
-
-                {service?.features?.length > 0 && (
-                    <ul className="space-y-3">
-                        {service?.features.map((f, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-lg">
-                                <span className="text-[#5B8C51] text-xl">•</span>
-                                <span>{f}</span>
-                            </li>
+                    {service.description
+                        ?.split("\n")
+                        .filter(line => line.trim() !== "") // empty lines skip
+                        .map((line, index) => (
+                            <p key={index} className="text-gray-700 mb-4 leading-relaxed">
+                                {line}
+                            </p>
                         ))}
-                    </ul>
-                )}
-            </div>
+
+
+                    {service?.features?.length > 0 && (
+                        <ul className="space-y-3">
+                            {service?.features.map((f, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-lg">
+                                    <span className="text-[#5B8C51] text-xl">•</span>
+                                    <span>{f}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </section>
-            <CTASection/>
+            {/* <CTASection /> */}
         </>
     );
 }

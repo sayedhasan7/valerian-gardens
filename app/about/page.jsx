@@ -12,14 +12,14 @@ export default function AboutPage() {
     desc: "Transform your space with easy home gardening tips. Grow fresh vegetables, herbs, and flowers at home—perfect for beginners.",
   };
   return (
-    <div className="min-h-screen bg-[#F8F7F0]">
+    <div className="min-h-screen bg-[#FDF6ED]">
       {/* Hero Section */}
      <HeroVideoSection {...item}/>
 
       <AboutSection/>
 
       {/* Philosophy Section */}
-      <section className="py-20 px-6 bg-[]">
+      {/* <section className="py-20 px-6 bg-[]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-yellow-600 font-semibold mb-3 tracking-wide">OUR APPROACH</p>
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 desc: "Using environmentally responsible methods and materials for long-lasting results."
               }
             ].map((item, index) => (
-              <div key={index} className="text-center p-8 rounded-3xl bg-[#F8F7F0]">
+              <div key={index} className="text-center p-8 rounded-3xl bg-[#FDF6ED]">
                 <div className="w-20 h-20 bg-[#8b8e7c] rounded-full mx-auto mb-6 flex items-center justify-center">
                   <i className={`fas ${item.icon} text-3xl text-[#404A3D]`}></i>
                 </div>
@@ -54,7 +54,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Gallery Section */}
       <section className="py-20 px-6">

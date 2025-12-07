@@ -37,13 +37,13 @@ export default function AdminSidebarLayout({
 
   // Define Links with Active Check logic inside the render
   const links = [
-    {
-      label: "Dashboard",
-      href: "/admin",
-      icon: (
-        <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
+    // {
+    //   label: "Dashboard",
+    //   href: "/admin",
+    //   icon: (
+    //     <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    //   ),
+    // },
     {
       label: "Reviews",
       href: "/admin/reviews",
@@ -83,12 +83,12 @@ export default function AdminSidebarLayout({
     <div
       className={cn(
         "flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 max-w-full mx-auto border-neutral-200 dark:border-neutral-700 overflow-hidden",
-        "h-screen" // Full screen height
+        "" // Full screen height
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10">
-          <div className="flex flex-col flex-1 overflow-x-hidden">
+        <SidebarBody className="justify-between fixed gap-10 z-[9999999999999]">
+          <div className="flex flex-col flex-1  overflow-x-hidden">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
               {links.map((link, idx) => {
@@ -97,6 +97,7 @@ export default function AdminSidebarLayout({
 
                 return (
                   <SidebarLink
+                    onClick={() => { setOpen(!open) }}
                     key={idx}
                     link={link}
                     // We pass a className to highlight the active item
@@ -118,7 +119,9 @@ export default function AdminSidebarLayout({
               className="flex w-full items-center gap-3 rounded cursor-pointer bg-red-500 text-white px-1 pr-4 py-1 hover:bg-red-600 transition"
             >
               <Power className="h-5 w-5 shrink-0" />
-              Logout
+              <span className={`${open ? "opacity-100" : "opacity-0"} transition-all`}>
+                Logout
+              </span>
             </button>
 
             {/* <div className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
@@ -139,8 +142,8 @@ export default function AdminSidebarLayout({
       </Sidebar>
 
       {/* MAIN CONTENT AREA */}
-      <div className="flex flex-1 overflow-y-scroll scroll-smooth scrollbar-hide">
-        <div className="p-2 md:p-5 rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full">
+      <div className="flex flex-1 scroll-smooth scrollbar-hide">
+        <div className="p-2 md:p-5 md:!pl-[80px] rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full">
           {children}
         </div>
       </div>
@@ -154,7 +157,7 @@ export const Logo = () => {
       href="/admin"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
     >
-      <Image height={20} width={25}  src={"/logo.png"} alt="logo" />
+      <Image height={20} width={25} src={"/logo.png"} alt="logo" />
       {/* <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" /> */}
       <motion.span
         initial={{ opacity: 0 }}

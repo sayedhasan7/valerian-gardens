@@ -4,17 +4,14 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { api } from "@/lib/api";
+import { useSelector } from "react-redux";
 
 function CustomSelect({ value, onChange }) {
   const [open, setOpen] = useState(false);
+  const { list: services } = useSelector((state) => state.services);
 
-  const options = [
-    "Bespoke Garden Design",
-    "Planting Plan",
-    "Implementation",
-    "Consultation",
-    "Other",
-  ];
+  const options = services?.map((item) =>
+    item.slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())) ?? []
 
   return (
     <div className="relative">
@@ -28,9 +25,8 @@ function CustomSelect({ value, onChange }) {
 
         {/* Arrow */}
         <svg
-          className={`w-5 h-5 text-[#404A3D] transition-transform duration-200 ${
-            open ? "rotate-180" : "rotate-0"
-          }`}
+          className={`w-5 h-5 text-[#404A3D] transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"
+            }`}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -93,7 +89,7 @@ export default function QuoteSection() {
   }
 
   return (
-    <section className="w-full bg-[#F9F7ED] py-16 px-6 lg:px-12">
+    <section className="w-full bg-[#FDF6E9] py-16 px-6 lg:px-12">
       <div className="max-w-7xl bg-white rounded-4xl shadow-lg mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         {/* LEFT IMAGE */}
@@ -103,16 +99,16 @@ export default function QuoteSection() {
             alt="Farmer"
             width={500}
             height={500}
-            className="object-contain w-full sm:rounded-l-4xl rounded-t-4xl drop-shadow-xl"
+            className="object-contain w-full sm:rounded-l-4xl rounded-t-4xl sm:rounded-tr-none drop-shadow-xl"
           />
         </div>
 
         {/* RIGHT FORM */}
         <div className="p-5 py-8">
-          <p className="inline-flex items-center gap-2 bg-[#E8ECD9] text-[#4C5C3A] px-4 py-1 rounded-full font-semibold mb-4">
+          {/* <p className="inline-flex items-center gap-2 bg-[#E8ECD9] text-[#4C5C3A] px-4 py-1 rounded-full font-semibold mb-4">
             <span className="size-2 bg-[#8b8e7c] rounded-full"></span>
             Free Quote
-          </p>
+          </p> */}
 
           <h2 className="text-4xl lg:text-5xl font-bold text-[#404A3D] mb-8">
             Book a consultation

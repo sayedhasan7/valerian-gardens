@@ -26,7 +26,7 @@ export default function AdminLogin() {
       // Save JWT token in sessionStorage
       // --------------------------------
       sessionStorage.setItem("token", token);
-      router.push("/admin");
+      router.push("/admin/reviews");
     } catch (err) {
       console.log(err)
       alert("Invalid login",err);

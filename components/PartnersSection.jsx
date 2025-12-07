@@ -5,7 +5,7 @@ import { ScrollVelocityContainer, ScrollVelocityRow } from "./ui/scroll-based-ve
 
 export default function AgricultureTicker() {
   return (
-    <div className="relative w-full pb-5                 flex items-center bg-[#F8F7F0] justify-center overflow-hidden pt-5">
+    <div className="relative w-full pb-5                 flex items-center bg-[#FDF6ED] justify-center overflow-hidden pt-5">
       <ScrollVelocityContainer className="text-4xl md:text-5xl font-bold tracking-tight flex gap-10 whitespace-nowrap">
         
         {/* Row 01 */}
@@ -14,8 +14,8 @@ export default function AgricultureTicker() {
         </ScrollVelocityRow>
 
       </ScrollVelocityContainer>
-      <div className="from-[#F8F7F0] pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
-      <div className="from-[#F8F7F0] pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+      <div className="from-[#FDF6ED] pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+      <div className="from-[#FDF6ED] pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
     </div>
   );
 }

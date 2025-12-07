@@ -13,11 +13,11 @@ export default function HeroVideoSection({
   title,
   breadcrumb = [],
   video = "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4",
-  mobileVideo,
+  mobileVideo = "https://res.cloudinary.com/sayed12m/video/upload/v1763787211/flwqsv6s2ecqyym8k50k.mp4",
   // overlay = "from-green-900/70 via-green-800/60 to-green-900/70 opacity-95",
 }) {
   return (
-    <section className="w-full overflow-hidden bg-[#F8F7F0] sm:p-5 p-2">
+    <section className="w-full overflow-hidden bg-[#FDF6E9] sm:p-5 p-2">
       <div className="relative inverted-radius">
         <div className="absolute inset-0 backdrop-blur-xl h-24 opacity-50"></div>
 

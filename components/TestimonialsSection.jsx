@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
                     method: "GET",
                     cache: "no-store",
                 });
-                setAllReviews(data.data.reviews);
+                setAllReviews(data?.data?.reviews?.filter((review) => review.status !== "unpublished"));
             } catch (err) {
                 console.error("Error fetching reviews:", err);
 
@@ -83,7 +83,7 @@ export default function TestimonialsSection() {
     };
 
     return (
-        <section className="block relative bg-[#F8F7F0] overflow-hidden">
+        <section className="block relative bg-[#FDF6ED] overflow-hidden">
 
             {/* Background SVGs */}
             <LeaveSVG className="absolute hidden lg:block left-0 top-10 rotate-45 z-0" />
@@ -154,16 +154,23 @@ export default function TestimonialsSection() {
 
                                 {/* Profile */}
                                 <div className="flex flex-row items-start">
-                                    <Image
-                                        src={testimonial.profilePic || "/testimonial.jpeg"}
-                                        alt={testimonial.name}
-                                        width={64}
-                                        height={64}
-                                        className="mr-4 h-16 w-16 rounded-full object-cover"
-                                    />
-                                    <div className="flex flex-col items-start">
-                                        <h6 className="text-base font-bold text-[#404A3D]">{testimonial.name}</h6>
-                                        <p className="text-sm text-[#666666]">{testimonial.role}</p>
+                                    {/* Profile */}
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-12 h-12 rounded-full bg-[#8b8e7c]/20 flex items-center justify-center text-[#404A3D] font-semibold text-sm">
+                                            {testimonial.name
+                                                ? testimonial.name
+                                                    .split(" ")
+                                                    .map((n) => n[0])
+                                                    .join("")
+                                                    .slice(0, 2)
+                                                    .toUpperCase()
+                                                : "NA"}
+                                        </div>
+
+                                        <div className="flex flex-col">
+                                            <h6 className="text-base font-bold text-[#404A3D]">{testimonial.name}</h6>
+                                            <p className="text-sm text-[#666666]">{testimonial.role}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

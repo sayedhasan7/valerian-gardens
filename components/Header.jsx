@@ -1,214 +1,349 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
-import { Menu, Phone, PhoneCall } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { useEffect, useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { fetchServices } from "@/redux/serviceSlice";
+
 export default function Header() {
-  const pathname  = usePathname();
-  if (pathname.match(/\/admin(\/|$)/)) {
-    return null;
-  }
+  const pathname = usePathname();
+  const dispatch = useDispatch();
+
+  const { list: services } = useSelector((state) => state.services);
+
   const [openMega, setOpenMega] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const megaMenuData = {
-    services: [
-      {
-        items: [
-          "Bespoke garden design",
-          "Specialised Planting Plan",
-          "Ordering Plants",
-          "Implementation",
-          "Aftercare",
-        ],
-      },
-    ],
-  };
+  if (pathname.match(/\/admin(\/|$)/)) return null;
 
+  // FETCH SERVICES GLOBAL
+  useEffect(() => {
+    dispatch(fetchServices());
+  }, [dispatch]);
+
+  // Sticky header
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ============ MOBILE SIDEBAR ============
-  const MobileSidebar = () => (
-    <SheetContent
-      side="left"
-      className="w-[280px] overflow-y-auto hide-scrollbar bg-white rounded-r-xl p-6"
-    >
-      <SheetHeader className="p-0 mt-5">
-        <SheetTitle className="text-xl font-semibold mb-4">
-          <div className="flex items-center gap-3">
-            <Image src="/logo.png" height={50} width={40} alt="logo" />
-            <div className="flex flex-col justify-center items-start">
-              <h1 className="text-xl font-semibold uppercase">Valerian Gardens</h1>
-              <div className="-mt-1 text-lg font-extralight uppercase">design</div>
+  // Auto-open dropdown if on service page
+  useEffect(() => {
+    if (services?.some((s) => pathname.includes(`/services/${s.slug}`))) {
+      setMobileOpen(true);
+    }
+  }, [pathname, services]);
+
+  // Prevent body scroll when sidebar is open
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [sidebarOpen]);
+
+  const formatSlug = (slug) =>
+    slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  const isActive = (href) => pathname === href;
+  const isServiceActive = (slug) => pathname.includes(`/services/${slug}`);
+
+  // Close sidebar when link is clicked
+  const handleLinkClick = () => {
+    setSidebarOpen(false);
+  };
+
+  // ---------------- CUSTOM MOBILE SIDEBAR ----------------
+  const CustomMobileSidebar = () => (
+    <>
+      {/* Backdrop Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/50 z-90 transition-opacity duration-300 lg:hidden ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        onClick={() => setSidebarOpen(false)}
+      />
+
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-full w-[290px] bg-white shadow-2xl z-100 transform transition-transform duration-300 ease-in-out rounded-r-2xl lg:hidden ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
+        <div className="flex flex-col h-full overflow-y-auto hide-scrollbar">
+          {/* Sidebar Header */}
+          <div className="p-6 border-b">
+            <div className="flex items-center justify-between mb-4">
+              <Link href={"/"} className="flex items-center bg-[#ffffff] p-2 pr-5 px-4 rounded-2xl gap-3">
+                <Image src="/logo.png" height={50} width={40} alt="logo" />
+                <div className="flex flex-col">
+                  <h1 className=" leading-4 tracking-wide font-semibold uppercase text-[#404A3D]">
+                    Valerian <br /> Gardens
+                    <br />
+                    design
+                  </h1>
+                </div>
+              </Link>
+              <button
+                onClick={() => setSidebarOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
             </div>
           </div>
-        </SheetTitle>
-      </SheetHeader>
 
-      <nav className="flex flex-col gap-4 text-gray-800 font-medium mt-4">
-        <Link href={"/"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>HOME</Link>
 
-        <Accordion type="single" collapsible>
-          <AccordionItem value="services">
-            <AccordionTrigger className="font-semibold text-gray-800 hover:text-[#8b8e7c]">
-              SERVICES
-            </AccordionTrigger>
+          {/* Sidebar Navigation */}
+          <nav className="flex flex-col gap-2 p-6 flex-1">
+            {/* HOME */}
+            <Link
+              href={"/"}
+              onClick={handleLinkClick}
+              className={`px-4 py-3 rounded-lg uppercase font-medium transition-all ${isActive("/")
+                ? "bg-[#8b8e7c]/20 text-[#404A3D] font-bold"
+                : "text-gray-900 hover:bg-gray-100"
+                }`}
+            >
+              HOME
+            </Link>
 
-            <AccordionContent className="pl-2 mt-3">
-              {megaMenuData.services[0].items.map((item, i) => (
-                <li
-                  key={i}
-                  className="text-gray-700 hover:text-[#8b8e7c] cursor-pointer list-none"
-                >
-                  {item}
-                </li>
-              ))}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+            {/* SERVICES DROPDOWN */}
+            <div className="mt-1">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setMobileOpen((p) => !p);
+                }}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-lg uppercase font-medium transition-all ${pathname.includes("/services")
+                  ? "bg-[#8b8e7c]/20 text-[#404A3D] font-bold"
+                  : "text-gray-900 hover:bg-gray-100"
+                  }`}
+              >
+                <span>SERVICES</span>
+                <ChevronDown
+                  className={`w-5 h-5 transition-transform duration-200 ${mobileOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                />
+              </button>
 
-        <Link data-slot="sheet-close" href={"/portfolio"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>PORTFOLIO</Link>
-        <Link data-slot="sheet-close" href={"/about"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>About US</Link>
-        <Link data-slot="sheet-close" href={"/contact-us"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>CONTACT US</Link>
-      </nav>
+              {/* Services List with smooth animation */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+              >
+                <div className="flex flex-col gap-1 mt-2 pl-2">
+                  {services?.map((service) => (
+                    <Link
+                      key={service._id}
+                      href={`/services/${service.slug}`}
+                      scroll={false}
+                      onClick={handleLinkClick}
+                      className={`flex items-center justify-between px-4 py-2.5 rounded-lg transition-all ${isServiceActive(service.slug)
+                        ? "bg-[#8b8e7c]/30 text-[#404A3D] font-semibold"
+                        : "text-gray-700 hover:bg-[#8b8e7c]/10"
+                        }`}
+                    >
+                      <span className="text-sm">{formatSlug(service.slug)}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-      <div className="mt-8 flex items-center gap-3">
-        <PhoneCall className="w-5 h-5 text-[#8b8e7c]" />
-        <div>
-          <p className="text-gray-500 text-sm">Call Us</p>
-          <p className="font-semibold text-gray-800">+1(212)255-511</p>
+            {/* PORTFOLIO */}
+            <Link
+              href={"/portfolio"}
+              onClick={handleLinkClick}
+              className={`px-4 py-3 rounded-lg uppercase font-medium transition-all ${isActive("/portfolio")
+                ? "bg-[#8b8e7c]/20 text-[#404A3D] font-bold"
+                : "text-gray-900 hover:bg-gray-100"
+                }`}
+            >
+              PORTFOLIO
+            </Link>
+
+            {/* ABOUT US */}
+            <Link
+              href={"/about"}
+              onClick={handleLinkClick}
+              className={`px-4 py-3 rounded-lg uppercase font-medium transition-all ${isActive("/about")
+                ? "bg-[#8b8e7c]/20 text-[#404A3D] font-bold"
+                : "text-gray-900 hover:bg-gray-100"
+                }`}
+            >
+              ABOUT US
+            </Link>
+
+            {/* CONTACT US */}
+            <Link
+              href={"/contact-us"}
+              onClick={handleLinkClick}
+              className={`px-4 py-3 rounded-lg uppercase font-medium transition-all ${isActive("/contact-us")
+                ? "bg-[#8b8e7c]/20 text-[#404A3D] font-bold"
+                : "text-gray-900 hover:bg-gray-100"
+                }`}
+            >
+              CONTACT US
+            </Link>
+          </nav>
+
+          {/* Sidebar Footer CTA */}
+          <div className="p-6 border-t">
+            <Link
+              href={"/contact-us"}
+              onClick={handleLinkClick}
+              className="block w-full text-center px-6 py-3 rounded-full font-semibold text-sm bg-[#8b8e7c] text-white hover:bg-[#404A3D] transition-all"
+            >
+              Get In Touch
+            </Link>
+          </div>
         </div>
       </div>
-
-      <Link href={"/contact-us"} className="bg-[#8b8e7c]/90 hover:bg-[#8b8e7c] p-2 rounded text-center font-medium text-white mt-8 w-full">Get In Touch</Link>
-    </SheetContent>
+    </>
   );
 
-  // ============ MEGA MENU ============
-  const MegaMenu = ({ isSticky }) => (
+  // ---------------- DESKTOP MEGA MENU ----------------
+  const MegaMenu = () => (
     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] animate-fadeIn">
-      <ul className={`space-y-2 mt-8 border-t-4 border-[#8b8e7c] bg-[#F8F7F0] text-gray-800 shadow-xl rounded-xl p-8`}>
-        {megaMenuData.services[0].items.map((item, i) => (
-          <li key={i} className="hover:text-[#8b8e7c] cursor-pointer">
-            {item}
-          </li>
+      <ul className="space-y-3 mt-8 border-t-4 border-[#8b8e7c] bg-[#FDF6E9] text-gray-800 shadow-xl rounded-xl p-6">
+        {services?.map((service) => (
+          <Link key={service._id} href={`/services/${service.slug}`}>
+            <li
+              className={`flex items-center justify-between cursor-pointer p-2 rounded-md transition 
+                ${isServiceActive(service.slug)
+                  ? "bg-[#8b8e7c]/40 text-[#404A3D] font-semibold"
+                  : "hover:bg-[#8b8e7c]/15"
+                }
+              `}
+            >
+              {formatSlug(service.slug)}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
   );
 
-  // ============ MAIN RETURN ============
+  // ---------------- HEADER ----------------
   return (
-    <header
-      className={`
-        fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${isSticky ? "bg-[#F8F7F0] shadow-md py-3" : "bg-transparent py-6"}
-      `}
-    >
-      <div className="mx-auto sm:mt-2.5 flex items-center justify-between px-6 lg:px-8">
-
-        {/* LOGO */}
-        <div className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            width={50}
-            height={50}
-            alt="logo"
-            className={`${isSticky ? "brightness-0" : "invert"}`}
-          />
-
-          <div className="flex flex-col">
-            <h1
-              className={`sm:text-xl font-signika font-semibold uppercase ${isSticky ? "text-black" : "text-white"
-                }`}
-            >
-              Valerian 
-            </h1>
-            <h1>
-              Gardens
-            </h1>
-            <span
-              className={`text-sm font-signika glfont-extralight uppercase ${isSticky ? "text-black" : "text-white"
-                }`}
-            >
-              design
-            </span>
-          </div>
-        </div>
-
-        {/* DESKTOP NAV */}
-        <nav
-          className={`hidden lg:flex items-center gap-8 ${isSticky ? "text-black" : "text-white"
-            }`}
-        >
-          <Link href={"/"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>HOME</Link>
-
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenMega(true)}
-            onMouseLeave={() => setOpenMega(false)}
-          >
-            <button className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>SERVICES</button>
-            {openMega && <MegaMenu isSticky={isSticky} />}
-          </div>
-
-          <Link href={"/portfolio"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>PORTFOLIO</Link>
-          <Link href={"/about"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>About US</Link>
-          <Link href={"/contact-us"} className={`${!isSticky ? "hover:text-[#8b8e7c]" : "hover:text-[#404A3D]"} uppercase`}>CONTACT</Link>
-        </nav>
-
-        {/* RIGHT SIDE */}
-        <div className="flex items-center gap-4">
-          {/* PHONE ICON */}
-          <div className={`border-r-2 ${isSticky ? "border-gray-300" : "border-transparent"}`}>
-            <div
-              className={`lg:hidden mr-2 hover:cursor-pointer sm:block hidden transition-all sm:mr-5 xl:flex items-center rounded-full sm:border gap-3 p-2 bg-white`}
-            >
-              <PhoneCall strokeWidth={1} className="h-5 w-5" />
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all ${isSticky ? "bg-[#FDF6E9] shadow-md py-3" : "bg-transparent py-6"
+          }`}
+      >
+        <div className="mx-auto sm:mt-2.5 flex items-center justify-between px-6 lg:px-8">
+          <Link href={"/"} className="flex items-center bg-[#ffffff] p-2 pr-5 px-4 rounded-2xl gap-3">
+            <Image src="/logo.png" height={50} width={40} alt="logo" />
+            <div className="flex flex-col">
+              <h1 className=" leading-4 tracking-wide font-semibold uppercase text-[#404A3D]">
+                Valerian <br /> Gardens
+                <br />
+                design
+              </h1>
             </div>
-          </div>
+          </Link>
 
-          {/* MOBILE MENU */}
-          <Sheet>
-            <SheetTrigger asChild>
+          {/* DESKTOP NAV */}
+          <nav
+            className={`hidden lg:flex items-center gap-4 ${isSticky ? "text-[#404A3D]" : "text-white"
+              }`}
+          >
+            <Link
+              href="/"
+              className={`uppercase transition p-2 px-5 rounded-full ${isActive("/")
+                ? `text-[#8b8e7c] ${!isSticky ? "bg-white" : "bg-white shadow"
+                }`
+                : "hover:text-[#8b8e7c] hover:bg-white"
+                }`}
+            >
+              HOME
+            </Link>
+
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenMega(true)}
+              onMouseLeave={() => setOpenMega(false)}
+            >
               <button
-                className={`w-10 h-10 lg:hidden border shadow-2xl rounded-full flex items-center justify-center ${isSticky ? "bg-white" : "bg-white"
+                className={`uppercase transition p-2 px-5 rounded-full ${pathname.includes("/services")
+                  ? `text-[#8b8e7c] ${!isSticky ? "bg-white" : "bg-white shadow"
+                  }`
+                  : "hover:text-[#8b8e7c] hover:bg-white"
                   }`}
               >
-                <Menu className="w-5 h-5 text-gray-800" />
+                SERVICES
               </button>
-            </SheetTrigger>
-            <MobileSidebar />
-          </Sheet>
 
-          {/* BUTTON */}
-          <Link
-          href={"/contact-us"}
-            className={`hidden lg:flex items-center px-6 py-3 rounded-full font-semibold text-sm gap-2 whitespace-nowrap
-            ${isSticky ? "bg-[#8b8e7c] text-white" : "bg-[#8b8e7c] text-white"}
-          `}
-          >
-            Get In Touch
-          </Link>
+              {openMega && <MegaMenu />}
+            </div>
+
+            <Link
+              href="/portfolio"
+              className={`uppercase transition p-2 px-5 rounded-full ${isActive("/portfolio")
+                ? `text-[#8b8e7c] ${!isSticky ? "bg-white" : "bg-white shadow"
+                }`
+                : "hover:text-[#8b8e7c] hover:bg-white"
+                }`}
+            >
+              PORTFOLIO
+            </Link>
+
+            <Link
+              href="/about"
+              className={`uppercase transition p-2 px-5 rounded-full ${isActive("/about")
+                ? `text-[#8b8e7c] ${!isSticky ? "bg-white" : "bg-white shadow"
+                }`
+                : "hover:text-[#8b8e7c] hover:bg-white"
+                }`}
+            >
+              ABOUT US
+            </Link>
+
+            <Link
+              href="/contact-us"
+              className={`uppercase transition p-2 px-5 rounded-full ${isActive("/contact-us")
+                ? `text-[#8b8e7c] ${!isSticky ? "bg-white" : "bg-white shadow"
+                }`
+                : "hover:text-[#8b8e7c] hover:bg-white"
+                }`}
+            >
+              CONTACT
+            </Link>
+          </nav>
+
+          {/* RIGHT SIDE */}
+          <div className="flex items-center gap-4">
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="w-14 h-16 lg:hidden -mr-3 border rounded-md flex items-center justify-center bg-white hover:bg-gray-50 transition"
+            >
+              <Menu className="w-6 h-6 text-[#404A3D]" />
+            </button>
+
+            <Link
+              href={"/contact-us"}
+              className="hidden lg:flex items-center px-6 py-3 rounded-full font-semibold text-sm gap-2 whitespace-nowrap bg-[#8b8e7c] text-white hover:bg-[#404A3D] transition"
+            >
+              Get In Touch
+            </Link>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Custom Mobile Sidebar */}
+      <CustomMobileSidebar />
+    </>
   );
 }
